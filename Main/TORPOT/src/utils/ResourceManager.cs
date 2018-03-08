@@ -27,7 +27,7 @@ namespace Svennebanan
 
         public void LoadContent(ContentManager content)
         {
-            //images.AddImage("Play", content.Load<Texture2D>("PLAY"));
+            images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
 
             //Menu
@@ -41,7 +41,9 @@ namespace Svennebanan
 
             //tiles
             //tiles.AddTile(new Tile(0, 0, new Rectangle(64, 0, 64, 64), true));
-
+            tiles.AddTile(new Tile(9, 0, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(9, 1, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(10, 1, new Rectangle(0, 0, 32, 32), true));
 
             //sounds
             //audio.AddAudio(0, content.Load<SoundEffect>("fly"));

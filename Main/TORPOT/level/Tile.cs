@@ -18,7 +18,7 @@ namespace Svennebanan
 
         public Tile(int texPosX, int texPosY, Rectangle offset, bool solid)
         {
-            this.texturePosition = new Rectangle(texPosX * 128, texPosY * 128, 128, 128);
+            this.texturePosition = new Rectangle(texPosX * 32, texPosY * 32, 32, 32);
             this.solid = solid;
             this.offset = offset;
         }
