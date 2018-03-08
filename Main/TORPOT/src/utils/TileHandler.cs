@@ -9,7 +9,7 @@ namespace Svennebanan
     public class TileHandler
     {
 
-        private const int TILESIZE = 32;
+        private const int TILESIZE = 10;
         private Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
 
         public void AddTile(Tile tile)
