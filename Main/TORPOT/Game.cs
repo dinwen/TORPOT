@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Svennebanan;
 using TORPOT.level;
+using TORPOT.level.Levels;
 
 namespace TORPOT
 {
@@ -11,6 +12,7 @@ namespace TORPOT
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         ResourceManager resources;
+        InputHandler inputHandler;
 
         public static Camera camera;
 
@@ -38,10 +40,11 @@ namespace TORPOT
         {
             base.Initialize();
 
+            inputHandler = new InputHandler();
             camera = new Svennebanan.Camera(GraphicsDevice.Viewport);
-            camera.Zoom = 1f;
+            camera.Zoom = 2f;
 
-            level = new Level(resources);
+            level = new LevelOne(resources);
         }
 
         protected override void LoadContent()
@@ -59,6 +62,7 @@ namespace TORPOT
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            inputHandler.Update();
 
             if(state == STATE.Game)
             {

@@ -52,7 +52,7 @@ namespace Svennebanan
                         if (id != -1)
                         {
                             Console.WriteLine(id);
-                            loadedTiles.Add(new Tile(new Vector2(x * 128, y * 128), resources.tiles.GetTile(id)));
+                            loadedTiles.Add(new Tile(new Vector2(x * 32, y * 32), resources.tiles.GetTile(id)));
                         }
                     }
                 }

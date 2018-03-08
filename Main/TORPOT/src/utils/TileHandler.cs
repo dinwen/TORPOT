@@ -9,12 +9,12 @@ namespace Svennebanan
     public class TileHandler
     {
 
-        private const int TILESIZE = 10;
+        private const int TILESIZE = 32;
         private Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
 
         public void AddTile(Tile tile)
         {
-            int id = (tile.texturePosition.X + (tile.texturePosition.Y * 6)) / TILESIZE;
+            int id = (tile.texturePosition.X + (tile.texturePosition.Y * 15)) / TILESIZE;
             tiles.Add(id, tile);
         }
 
