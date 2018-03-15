@@ -30,6 +30,7 @@ namespace Svennebanan
             images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
             images.AddImage("player", content.Load<Texture2D>("player"));
+            Console.WriteLine("1");
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
 
