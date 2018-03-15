@@ -74,7 +74,7 @@ namespace TORPOT
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkCyan);
 
             if(state == STATE.Game)
             {

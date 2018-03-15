@@ -29,6 +29,7 @@ namespace Svennebanan
         {
             images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
+            images.AddImage("player", content.Load<Texture2D>("player"));
 
             //Menu
             //images.AddImage("play", content.Load<Texture2D>("PLAY"));
