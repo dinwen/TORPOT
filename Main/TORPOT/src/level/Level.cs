@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TORPOT.src.level.entities;
 
 namespace TORPOT.level
 {
@@ -17,7 +18,9 @@ namespace TORPOT.level
 
         public LevelLoader levelLoader;
 
+        
         public List<Tile> tiles = new List<Tile>();
+        public List<Entity> entities = new List<Entity>();
 
         public Level(ResourceManager resources)
         {
