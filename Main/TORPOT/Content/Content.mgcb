@@ -25,7 +25,7 @@
 /processorParam:TextureFormat=Color
 /build:Tile sheet v.3 32x32.png
 
-#begin player.png
+#begin Healthbar.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,5 +35,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:player.png
+/build:Healthbar.png
 
