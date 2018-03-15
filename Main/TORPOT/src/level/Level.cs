@@ -39,14 +39,29 @@ namespace TORPOT.level
             if (InputHandler.down) Game.camera.Position.Y+=5;
             if (InputHandler.left) Game.camera.Position.X-=5;
             if (InputHandler.up) Game.camera.Position.Y-=5;
+
+            for(int i = 0; i < entities.Count(); i++)
+            {
+                entities[i].Update();
+            }
         }
         
+        public void AddEntity(Entity e)
+        {
+            entities.Add(e);
+        }
+
         public void Draw(SpriteBatch batch)
         {
             foreach (Tile t in tiles)
             {
                
                 batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0.1f);
+            }
+
+            for (int i = 0; i < entities.Count(); i++)
+            {
+                entities[i].Draw(batch);
             }
         }
 
