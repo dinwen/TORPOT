@@ -11,7 +11,7 @@ namespace TORPOT.src.level.entities
     public class Entity
     {
 
-        private float x, y;
+        protected float x, y;
         private bool removed;
 
         protected ResourceManager resources;
