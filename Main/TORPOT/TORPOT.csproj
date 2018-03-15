@@ -48,7 +48,6 @@
     <Compile Include="src\level\entities\Entity.cs" />
     <Compile Include="src\level\entities\living\EntityLiving.cs" />
     <Compile Include="src\level\entities\living\EntityPlayer.cs" />
-    <Compile Include="src\level\Entity.cs" />
     <Compile Include="src\level\Level.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
     <Compile Include="src\level\Tile.cs" />
