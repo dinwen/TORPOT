@@ -18,6 +18,8 @@ namespace TORPOT
 
         public static Level level;
 
+        public static int WIDTH = 1920 / 2, HEIGHT = 1080 / 2;
+
         public enum STATE
         {
             Game, Menu, Quit
@@ -29,8 +31,8 @@ namespace TORPOT
         {
             resources = new ResourceManager();
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = WIDTH;
+            graphics.PreferredBackBufferHeight = HEIGHT;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
             graphics.IsFullScreen = false;
@@ -42,7 +44,7 @@ namespace TORPOT
 
             inputHandler = new InputHandler();
             camera = new Svennebanan.Camera(GraphicsDevice.Viewport);
-            camera.Zoom = 2f;
+            camera.Zoom = 1f;
 
             level = new LevelOne(resources);
         }
