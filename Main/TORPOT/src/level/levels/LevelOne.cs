@@ -1,4 +1,5 @@
-﻿using Svennebanan;
+﻿using Microsoft.Xna.Framework;
+using Svennebanan;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,13 @@ namespace TORPOT.level.Levels
             LoadLevel("Content/levels/test.txt");
 
             AddEntity(new EntityPlayer(400, 150));
-            AddEntity(new ParticleTest(400, rdn.Next(100, 200)));
+
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
         }
 
     }

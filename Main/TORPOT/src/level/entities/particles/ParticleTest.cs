@@ -25,7 +25,7 @@ namespace TORPOT.src.level.entities.particles
             {
                 Remove();
             }
-            x+=2;
+            x+=10;
         }
 
         public override void Draw(SpriteBatch batch)
