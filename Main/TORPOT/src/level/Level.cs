@@ -8,10 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using TORPOT.src.level.entities;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using TORPOT.src.utils.gui;
 =======
 using TORPOT.src.level.entities.living;
 >>>>>>> master
+=======
+using TORPOT.src.utils.gui;
+using TORPOT.src.level.entities.living;
+
+>>>>>>> d2db9ec6221e9db4ae3065c117df1aa22d1a6b5b
 
 namespace TORPOT.level
 {
@@ -45,6 +51,7 @@ namespace TORPOT.level
         public virtual void Update(GameTime gameTime)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (InputHandler.right) Game.camera.Position.X+=5;
             if (InputHandler.down) Game.camera.Position.Y+=5;
             if (InputHandler.left) Game.camera.Position.X-=5;
@@ -62,6 +69,16 @@ namespace TORPOT.level
             }
             Game.camera.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5);
 >>>>>>> master
+=======
+
+
+            for(int i = 0; i < entities.Count(); i++)
+            {
+                entities[i].Update();
+            }
+            Game.camera.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5);
+
+>>>>>>> d2db9ec6221e9db4ae3065c117df1aa22d1a6b5b
         }
         
         public void AddEntity(Entity e)

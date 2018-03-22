@@ -30,18 +30,29 @@ namespace Svennebanan
             images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> d2db9ec6221e9db4ae3065c117df1aa22d1a6b5b
             //images.AddImage("player", content.Load<Texture2D>("player"));
 
             images.AddImage("Healthbar", content.Load<Texture2D>("Healthbar"));
             images.AddImage("HealthbarBackground", content.Load<Texture2D>("Lifebar black"));
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("lifebar frame"));
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> d2db9ec6221e9db4ae3065c117df1aa22d1a6b5b
             images.AddImage("player", content.Load<Texture2D>("player"));
             Console.WriteLine("1");
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> d2db9ec6221e9db4ae3065c117df1aa22d1a6b5b
 
             //Menu
             //images.AddImage("play", content.Load<Texture2D>("PLAY"));
