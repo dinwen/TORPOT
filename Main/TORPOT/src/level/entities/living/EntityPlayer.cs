@@ -17,12 +17,12 @@ namespace TORPOT.src.level.entities.living
 
         public EntityPlayer(float x, float y) : base(x, y)
         {
-            this.width = 26;
+            this.width = 64;
             this.height = 64;
             this.movementSpeed = 5;
-            this.jumpHeight = 4;
+            this.jumpHeight = 6;
 
-            sprint = new Animation(3, 0, 0, 640, 64, 64, 64, true);
+            sprint = new Animation(3, 0, 0, 64, 64, 448, 64, true);
         }
 
         public override void Update()

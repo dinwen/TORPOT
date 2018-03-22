@@ -14,7 +14,7 @@ namespace TORPOT.level
     public class Level
     {
 
-        public float gravity = 0.1f;
+        public float gravity = 0.2f;
 
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
@@ -42,6 +42,7 @@ namespace TORPOT.level
             for(int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Update();
+                if (entities[i].isRemoved()) entities.RemoveAt(i);
             }
             Game.camera.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5);
         }
