@@ -29,7 +29,7 @@ namespace Svennebanan
         {
             images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
-            images.AddImage("player", content.Load<Texture2D>("player"));
+            images.AddImage("player", content.Load<Texture2D>("playerSheet"));
             Console.WriteLine("1");
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
@@ -48,6 +48,12 @@ namespace Svennebanan
             tiles.AddTile(new Tile(9, 0, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(9, 1, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(10, 1, new Rectangle(0, 0, 32, 32), true));
+
+            tiles.AddTile(new Tile(0, 0, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(8, 0, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(0, 1, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(0, 2, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(0, 3, new Rectangle(0, 0, 32, 32), true));
 
             //sounds
             //audio.AddAudio(0, content.Load<SoundEffect>("fly"));

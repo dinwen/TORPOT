@@ -36,7 +36,7 @@ namespace TORPOT.src.level.entities.living
             CheckCollision();
         }
 
-        public void UpdateMovement()
+        public virtual void UpdateMovement()
         {
             x += velX;
             y += velY;
@@ -69,7 +69,7 @@ namespace TORPOT.src.level.entities.living
                     {
                         y = t.position.Y + t.collision.Height;
                         velY = 1;
-                        return true;
+                        
                     }
                     if (GetBoundsBottom().Intersects(t.GetBounds()))
                     {
@@ -78,17 +78,17 @@ namespace TORPOT.src.level.entities.living
                             velY = 0;
                         }
                         y = t.position.Y - height + t.offset.Y;
-                        return true;
+                        
                     }
                     if (GetBoundsLeft().Intersects(t.GetBounds()))
                     {
                         x = t.position.X + t.collision.Height;
-                        return true;
+                        
                     }
                     if (GetBoundsRight().Intersects(t.GetBounds()))
                     {
                         x = t.position.X - width + t.offset.X;
-                        return true;
+                        
                     }
                 }
             }
