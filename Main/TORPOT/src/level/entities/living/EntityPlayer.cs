@@ -16,13 +16,22 @@ namespace TORPOT.src.level.entities.living
         {
             this.width = 64;
             this.height = 64;
+            this.movementSpeed = 5;
+            this.jumpHeight = 4;
         }
 
         public override void Update()
         {
             base.Update();
-            if (InputHandler.right) x++;
-            if (InputHandler.left) x--;
+            if (InputHandler.right) x+= movementSpeed;
+            if (InputHandler.left) x-= movementSpeed;
+
+            if(velY == 0 && OnGround() && InputHandler.jump)
+            {
+
+                velY -= jumpHeight;
+                InputHandler.releaseJump = true;
+            }
 
         }
 

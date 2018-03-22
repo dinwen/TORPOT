@@ -14,6 +14,7 @@ namespace TORPOT.src.level.entities.living
 
         protected float health;
         protected float movementSpeed;
+        protected float jumpHeight;
 
         protected float velX, velY;
 
@@ -51,13 +52,7 @@ namespace TORPOT.src.level.entities.living
             foreach (Tile t in level.tiles)
             {
                 if (t.GetBounds().Intersects(GetBoundsInGround()))
-                {
-                        Console.WriteLine("velY");
-                    if (velY > 0)
-                    {
-                        y = t.position.Y - height - 1;
-                        velY = 0;
-                    }
+                { 
                     return true;
                 }
             }
@@ -78,6 +73,10 @@ namespace TORPOT.src.level.entities.living
                     }
                     if (GetBoundsBottom().Intersects(t.GetBounds()))
                     {
+                        if (velY > 0)
+                        {
+                            velY = 0;
+                        }
                         y = t.position.Y - height + t.offset.Y;
                         return true;
                     }
