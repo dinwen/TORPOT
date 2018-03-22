@@ -36,7 +36,7 @@ namespace TORPOT.level
             tiles = levelLoader.GetLevelTiles();
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             Game.camera.Position = new Vector2(GetPlayer().GetX() - 1920/2 + 32, GetPlayer().GetY() - 1080/2 + 32);
 
