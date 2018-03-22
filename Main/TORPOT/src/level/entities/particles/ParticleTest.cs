@@ -16,7 +16,7 @@ namespace TORPOT.src.level.entities.particles
             x = X;
             y = Y;
 
-            duration = rdn.Next(60, 80);
+            duration = rdn.Next(2, 10);
         }
 
         public override void Update()
@@ -25,7 +25,7 @@ namespace TORPOT.src.level.entities.particles
             {
                 Remove();
             }
-            x++;
+            x+=2;
         }
 
         public override void Draw(SpriteBatch batch)

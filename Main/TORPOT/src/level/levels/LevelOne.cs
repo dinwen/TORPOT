@@ -18,8 +18,8 @@ namespace TORPOT.level.Levels
 
             LoadLevel("Content/levels/test.txt");
 
-            AddEntity(new EntityPlayer(400, 0));
-            AddEntity(new ParticleTest(400, rdn.Next(100, 300)));
+            AddEntity(new EntityPlayer(400, 150));
+            AddEntity(new ParticleTest(400, rdn.Next(100, 200)));
         }
 
     }
