@@ -58,6 +58,7 @@
     <Compile Include="src\utils\Animation.cs" />
     <Compile Include="src\utils\AudioHandler.cs" />
     <Compile Include="src\utils\Camera.cs" />
+    <Compile Include="src\utils\gui\HUD.cs" />
     <Compile Include="src\utils\ImageHandler.cs" />
     <Compile Include="src\utils\InputHandler.cs" />
     <Compile Include="src\utils\LevelLoader.cs" />
@@ -73,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Windows\x86\Debug\Content\Levels\Test.txt" />
+
     <Content Include="bin\Windows\x86\Debug\MonoGame.Framework.dll" />
     <Content Include="bin\Windows\x86\Debug\MonoGame.Framework.xml" />
     <Content Include="bin\Windows\x86\Debug\SharpDX.Direct2D1.dll" />
@@ -93,6 +95,8 @@
     <Content Include="bin\Windows\x86\Debug\SharpDX.xml" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.exe" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.pdb" />
+
+    <Content Include="Content\Healthbar.png" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.vshost.exe" />
     <Content Include="Content\hero sprite sheet 64x64.png" />
     <Content Include="Content\Levels\Test.txt">
@@ -109,6 +113,14 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="obj\x86\Debug\CoreCompileInputs.cache" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x86\Debug\TORPOT.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\x86\Debug\TORPOT.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\bin\Windows\" />
+    <Folder Include="Content\obj\Windows\" />
     <None Include="bin\Windows\x86\Debug\Content\Tile sheet v.3 32x32.xnb" />
     <None Include="bin\Windows\x86\Debug\TORPOT.vshost.exe.manifest" />
     <None Include="Content\bin\Windows\player.xnb" />
