@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Svennebanan;
 
 namespace TORPOT.src.level.entities.living
 {
@@ -11,8 +14,32 @@ namespace TORPOT.src.level.entities.living
 
         public EntityPlayer(float x, float y) : base(x, y)
         {
-            this.sprite = resources.images.GetImage("player");
+            this.width = 64;
+            this.height = 64;
+            this.movementSpeed = 5;
+            this.jumpHeight = 4;
         }
+
+        public override void Update()
+        {
+            base.Update();
+            if (InputHandler.right) x+= movementSpeed;
+            if (InputHandler.left) x-= movementSpeed;
+
+            if(velY == 0 && OnGround() && InputHandler.jump)
+            {
+
+                velY -= jumpHeight;
+                InputHandler.releaseJump = true;
+            }
+
+        }
+
+        public override void Draw(SpriteBatch batch)
+        {
+            batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), Color.White);
+        }
+
 
     }
 }
