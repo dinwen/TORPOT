@@ -48,6 +48,8 @@
     <Compile Include="src\level\entities\Entity.cs" />
     <Compile Include="src\level\entities\living\EntityLiving.cs" />
     <Compile Include="src\level\entities\living\EntityPlayer.cs" />
+    <Compile Include="src\level\entities\particles\EntityParticle.cs" />
+    <Compile Include="src\level\entities\particles\ParticleTest.cs" />
     <Compile Include="src\level\Level.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
     <Compile Include="src\level\Tile.cs" />
@@ -71,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Windows\x86\Debug\Content\Levels\Test.txt" />
+
     <Content Include="bin\Windows\x86\Debug\MonoGame.Framework.dll" />
     <Content Include="bin\Windows\x86\Debug\MonoGame.Framework.xml" />
     <Content Include="bin\Windows\x86\Debug\SharpDX.Direct2D1.dll" />
@@ -91,12 +95,15 @@
     <Content Include="bin\Windows\x86\Debug\SharpDX.xml" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.exe" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.pdb" />
+
     <Content Include="Content\Healthbar.png" />
+    <Content Include="bin\Windows\x86\Debug\TORPOT.vshost.exe" />
     <Content Include="Content\hero sprite sheet 64x64.png" />
     <Content Include="Content\Levels\Test.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\player.png" />
+    <Content Include="Content\testParticle.png" />
     <Content Include="Content\Tile sheet v.3 32x32.png" />
     <Content Include="Icon.ico" />
     <Content Include="obj\x86\Debug\TORPOT.csproj.FileListAbsolute.txt" />
@@ -114,6 +121,19 @@
   <ItemGroup>
     <Folder Include="Content\bin\Windows\" />
     <Folder Include="Content\obj\Windows\" />
+    <None Include="bin\Windows\x86\Debug\Content\Tile sheet v.3 32x32.xnb" />
+    <None Include="bin\Windows\x86\Debug\TORPOT.vshost.exe.manifest" />
+    <None Include="Content\bin\Windows\player.xnb" />
+    <None Include="Content\bin\Windows\Tile sheet v.3 32x32.xnb" />
+    <None Include="Content\obj\Windows\.mgcontent" />
+    <None Include="Content\obj\Windows\player.mgcontent" />
+    <None Include="Content\obj\Windows\Tile sheet v.3 32x32.mgcontent" />
+    <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\x86\Debug\TORPOT.csproj.CopyComplete" />
+    <None Include="obj\x86\Debug\TORPOT.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Windows\x86\Release\" />
     <Folder Include="obj\x86\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
