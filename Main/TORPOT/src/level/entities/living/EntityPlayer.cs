@@ -33,7 +33,6 @@ namespace TORPOT.src.level.entities.living
 
             if(velY == 0 && OnGround() && InputHandler.jump)
             {
-
                 velY -= jumpHeight;
                 InputHandler.releaseJump = true;
             }
