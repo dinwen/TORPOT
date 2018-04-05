@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
+using TORPOT.src.utils.gui;
 
 namespace TORPOT
 {

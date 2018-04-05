@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TORPOT.src.level.entities;
 using TORPOT.src.level.entities.living;
+using TORPOT.src.utils.gui;
 
 namespace TORPOT.level
 {
@@ -20,6 +21,7 @@ namespace TORPOT.level
         public InputHandler inputHandler;
 
         public LevelLoader levelLoader;
+        public HUD hud;
 
         
         public List<Tile> tiles = new List<Tile>();
@@ -28,6 +30,7 @@ namespace TORPOT.level
         public Level(ResourceManager resources)
         {
             this.resourceManager = resources;
+            this.hud = new HUD(this);
         }
 
         public void LoadLevel(string levelPath)
@@ -74,6 +77,8 @@ namespace TORPOT.level
             {
                 entities[i].Draw(batch);
             }
+
+            hud.Draw(batch);
 
         }
 

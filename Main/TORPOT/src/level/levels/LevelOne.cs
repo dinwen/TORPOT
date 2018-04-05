@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TORPOT.src.level.entities.living;
 using TORPOT.src.level.entities.particles;
+using TORPOT.src.utils.gui;
 
 namespace TORPOT.level.Levels
 {
