@@ -15,13 +15,14 @@ namespace Svennebanan
         private ResourceManager resources;
         public Vector2 size = Vector2.Zero;
 
-        public LevelLoader(ResourceManager resources, string path)
+        public LevelLoader(ResourceManager resources, string path, string layerPath)
         {
             this.resources = resources;
-            Load(path);
+            Load(path, true);
+            Load(layerPath, false);
         }
 
-        private void Load(string path)
+        private void Load(string path, bool collision)
         {
             string fullText = "";
 
@@ -51,8 +52,8 @@ namespace Svennebanan
                         int id = Convert.ToInt32(ids[x]);
                         if (id != -1)
                         {
-                            Console.WriteLine(id);
-                            loadedTiles.Add(new Tile(new Vector2(x * 32, y * 32), resources.tiles.GetTile(id)));
+                            Console.WriteLine(id + ", " + collision);
+                            loadedTiles.Add(new Tile(new Vector2(x * 32, y * 32), resources.tiles.GetTile(id), collision));
                         }
                     }
                 }

@@ -17,7 +17,7 @@ namespace TORPOT.level.Levels
         public LevelOne(ResourceManager resources) : base(resources)
         {
 
-            LoadLevel("Content/levels/TestLevel.txt");
+            LoadLevel("Content/levels/NewTest.txt", "Content/levels/j.txt");
 
             AddEntity(new EntityPlayer(400, 150));
 

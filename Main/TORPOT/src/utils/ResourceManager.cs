@@ -34,6 +34,8 @@ namespace Svennebanan
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
 
+            images.AddImage("projectile", content.Load<Texture2D>("projectile"));
+
             //Menu
             //images.AddImage("play", content.Load<Texture2D>("PLAY"));
             //images.AddImage("quit", content.Load<Texture2D>("QUIT"));

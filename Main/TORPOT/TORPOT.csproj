@@ -50,6 +50,8 @@
     <Compile Include="src\level\entities\living\EntityPlayer.cs" />
     <Compile Include="src\level\entities\particles\EntityParticle.cs" />
     <Compile Include="src\level\entities\particles\ParticleTest.cs" />
+    <Compile Include="src\level\entities\projectile\EntityProjectile.cs" />
+    <Compile Include="src\level\entities\projectile\ProjectileShell.cs" />
     <Compile Include="src\level\Level.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
     <Compile Include="src\level\Tile.cs" />
@@ -95,7 +97,16 @@
     <Content Include="bin\Windows\x86\Debug\TORPOT.pdb" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.vshost.exe" />
     <Content Include="Content\hero sprite sheet 64x64.png" />
+    <Content Include="Content\Levels\NewTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Levels\Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\TestLayer.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\TestLayer2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Levels\TestLevel.txt">

@@ -14,7 +14,7 @@ namespace TORPOT.level
     public class Level
     {
 
-        public float gravity = 0.2f;
+        public float gravity = 0.4f;
 
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
@@ -30,9 +30,9 @@ namespace TORPOT.level
             this.resourceManager = resources;
         }
 
-        public void LoadLevel(string levelPath)
+        public void LoadLevel(string levelPath, string layerPath)
         {
-            levelLoader = new LevelLoader(resourceManager, levelPath);
+            levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
         }
 
@@ -67,7 +67,7 @@ namespace TORPOT.level
             foreach (Tile t in tiles)
             {
                
-                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0.1f);
+                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             }
 
             for (int i = 0; i < entities.Count(); i++)
