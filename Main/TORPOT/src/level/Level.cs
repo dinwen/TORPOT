@@ -19,7 +19,6 @@ namespace TORPOT.level
 
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
-
         public LevelLoader levelLoader;
         public HUD hud;
 
@@ -29,6 +28,7 @@ namespace TORPOT.level
 
         public Level(ResourceManager resources)
         {
+            
             this.resourceManager = resources;
             this.hud = new HUD(this);
         }
@@ -42,6 +42,7 @@ namespace TORPOT.level
         public virtual void Update(GameTime gameTime)
         {
 
+            hud.Update();
             for(int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Update();
@@ -65,20 +66,21 @@ namespace TORPOT.level
             return null;
         }
 
-        public void Draw(SpriteBatch batch)
+        public void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
             foreach (Tile t in tiles)
             {
                
-                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0.1f);
+                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             }
 
             for (int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Draw(batch);
             }
-
-            hud.Draw(batch);
+            hudBatch.Begin(SpriteSortMode.BackToFront, null);
+            hud.Draw(hudBatch);
+            hudBatch.End();
 
         }
 

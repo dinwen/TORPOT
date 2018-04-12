@@ -37,6 +37,8 @@ namespace Svennebanan
             images.AddImage("HealthbarBackground", content.Load<Texture2D>("Lifebar black"));
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("Lifebar frame"));
+            images.AddImage("ItemHUD", content.Load<Texture2D>("itemhud"));
+
 
             //Menu
             //images.AddImage("play", content.Load<Texture2D>("PLAY"));
