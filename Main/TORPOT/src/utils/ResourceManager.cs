@@ -44,6 +44,12 @@ namespace Svennebanan
 
 
 
+            //menu
+            images.AddImage("Play", content.Load<Texture2D>("itemhud"));
+            images.AddImage("Quit", content.Load<Texture2D>("itemhud"));
+
+
+
             //Menu
             //images.AddImage("play", content.Load<Texture2D>("PLAY"));
             //images.AddImage("quit", content.Load<Texture2D>("QUIT"));

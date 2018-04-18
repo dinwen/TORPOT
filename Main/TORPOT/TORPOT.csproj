@@ -62,7 +62,9 @@
     <Compile Include="src\utils\Animation.cs" />
     <Compile Include="src\utils\AudioHandler.cs" />
     <Compile Include="src\utils\Camera.cs" />
+    <Compile Include="src\utils\gui\Button.cs" />
     <Compile Include="src\utils\gui\HUD.cs" />
+    <Compile Include="src\utils\gui\MainMenu.cs" />
     <Compile Include="src\utils\ImageHandler.cs" />
     <Compile Include="src\utils\InputHandler.cs" />
     <Compile Include="src\utils\LevelLoader.cs" />

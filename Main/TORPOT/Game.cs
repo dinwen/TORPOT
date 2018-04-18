@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
+using TORPOT.src.gui;
 using TORPOT.src.utils.gui;
 
 namespace TORPOT
@@ -16,6 +17,7 @@ namespace TORPOT
         InputHandler inputHandler;
         SpriteBatch hudBatch;
 
+        MainMenu mainMenu;
         public static Camera camera;
 
         public static Level level;
@@ -27,7 +29,7 @@ namespace TORPOT
             Game, Menu, Quit
         };
 
-        public static STATE state = STATE.Game;
+        public static STATE state = STATE.Menu;
 
         public Game()
         {
@@ -49,6 +51,8 @@ namespace TORPOT
             camera.Zoom = 1f;
 
             level = new LevelOne(resources);
+            mainMenu = new MainMenu(resources, new Vector2(), level);
+
         }
 
         protected override void LoadContent()
@@ -73,6 +77,10 @@ namespace TORPOT
             {
                 level.Update(gameTime);
             }
+            else if(state == STATE.Menu)
+            {
+                mainMenu.Update();
+            }
 
             base.Update(gameTime);
         }
@@ -86,7 +94,11 @@ namespace TORPOT
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
                 level.Draw(spriteBatch, hudBatch);
             }
-
+            else if(state == STATE.Menu)
+            {
+                spriteBatch.Begin();
+                mainMenu.Draw(spriteBatch);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
