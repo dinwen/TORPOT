@@ -39,6 +39,7 @@ namespace TORPOT.src.level.entities.living
             jump = new Animation(0, 0, 5, 64, 64, 384, 64, true);
             shooting_run = new Animation(3, 0, 1, 64, 64, 576, 64, false);
             shooting_still = new Animation(4, 0, 2, 64, 64, 192, 64, false);
+            health = 178;
         }
 
         public override void Update()

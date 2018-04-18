@@ -18,7 +18,7 @@ namespace TORPOT.src.level.entities.living
 
         public EntityEnemy01(float x, float y) : base(x, y)
         {
-            this.attackDamage = 5;
+            this.attackDamage = 0.1f;
             this.movementSpeed = 2f;
             this.direction = new Random().Next(0, 1);
 

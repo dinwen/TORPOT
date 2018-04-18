@@ -12,7 +12,7 @@ namespace TORPOT.src.level.entities.living
     public class EntityLiving : Entity
     {
 
-        protected float health;
+        public float health;
         protected float movementSpeed;
         protected float jumpHeight;
 

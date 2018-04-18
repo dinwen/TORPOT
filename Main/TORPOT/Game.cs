@@ -29,7 +29,7 @@ namespace TORPOT
             Game, Menu, Quit
         };
 
-        public static STATE state = STATE.Menu;
+        public static STATE state = STATE.Game;
 
         public Game()
         {

@@ -26,7 +26,7 @@ namespace TORPOT.src.utils.gui
 
         public void Update()
         {
-
+            this.health = level.GetPlayer().health;
             
         }
 
