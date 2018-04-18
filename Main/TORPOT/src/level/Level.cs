@@ -15,7 +15,7 @@ namespace TORPOT.level
     public class Level
     {
 
-        public float gravity = 0.2f;
+        public float gravity = 0.4f;
 
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
@@ -33,9 +33,9 @@ namespace TORPOT.level
             this.hud = new HUD(this);
         }
 
-        public void LoadLevel(string levelPath)
+        public void LoadLevel(string levelPath, string layerPath)
         {
-            levelLoader = new LevelLoader(resourceManager, levelPath);
+            levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
         }
 

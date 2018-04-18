@@ -15,8 +15,10 @@ namespace Svennebanan
         public static bool up;
         public static bool down;
         public static bool jump;
+        public static bool shoot;
 
         public static bool releaseJump = false;
+        public static bool releaseShoot = false;
         public static bool releaseShift = false;
 
         public static bool escape;
@@ -60,6 +62,19 @@ namespace Svennebanan
             else
             {
                 up = false;
+            }
+
+            if(Keyboard.GetState().IsKeyDown(Keys.J))
+            {
+                if (!releaseShoot)
+                {
+                    shoot = true;
+                }
+            }
+            else
+            {
+                releaseShoot = false;
+                shoot = false;
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space) || Keyboard.GetState().IsKeyDown(Keys.W))

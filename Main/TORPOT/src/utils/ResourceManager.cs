@@ -30,14 +30,18 @@ namespace Svennebanan
             images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
 
             images.AddImage("player", content.Load<Texture2D>("playerSheet"));
-            Console.WriteLine("1");
+            images.AddImage("walker", content.Load<Texture2D>("walker sprite sheet"));
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
+
+
+            images.AddImage("projectile", content.Load<Texture2D>("projectile"));
 
             images.AddImage("HealthbarBackground", content.Load<Texture2D>("Lifebar black"));
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("Lifebar frame"));
             images.AddImage("ItemHUD", content.Load<Texture2D>("itemhud"));
+
 
 
             //Menu
