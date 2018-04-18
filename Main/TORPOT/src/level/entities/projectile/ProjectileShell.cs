@@ -13,6 +13,8 @@ namespace TORPOT.src.level.entities.projectile
         public ProjectileShell(float x, float y, int direction) : base(x, y, direction)
         {
             this.speed = 10;
+            this.width = 32;
+            this.height = 32;
         }
 
         public override void Draw(SpriteBatch batch)

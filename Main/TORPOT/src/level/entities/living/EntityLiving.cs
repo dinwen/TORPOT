@@ -32,8 +32,8 @@ namespace TORPOT.src.level.entities.living
             OnGround();
             if (!OnGround()) velY += level.gravity;
 
-            CheckCollision();
             UpdateMovement();
+            CheckCollision();
         }
 
         public virtual void UpdateMovement()
@@ -59,7 +59,7 @@ namespace TORPOT.src.level.entities.living
             return false;
         }
 
-        public bool CheckCollision()
+        public virtual bool CheckCollision()
         {
 
             foreach (Tile t in level.tiles)

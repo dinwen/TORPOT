@@ -52,7 +52,6 @@ namespace Svennebanan
                         int id = Convert.ToInt32(ids[x]);
                         if (id != -1)
                         {
-                            Console.WriteLine(id + ", " + collision);
                             loadedTiles.Add(new Tile(new Vector2(x * 32, y * 32), resources.tiles.GetTile(id), collision));
                         }
                     }

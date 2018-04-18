@@ -66,7 +66,6 @@ namespace Svennebanan
 
             if(Keyboard.GetState().IsKeyDown(Keys.J))
             {
-                Console.WriteLine(releaseShoot);
                 if (!releaseShoot)
                 {
                     shoot = true;

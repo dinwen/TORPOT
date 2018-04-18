@@ -20,7 +20,7 @@ namespace TORPOT.level.Levels
             LoadLevel("Content/levels/NewTest.txt", "Content/levels/j.txt");
 
             AddEntity(new EntityPlayer(400, 150));
-
+            AddEntity(new EntityEnemy01(400, 150));
         }
 
         public override void Update(GameTime gameTime)

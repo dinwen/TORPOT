@@ -14,7 +14,7 @@ namespace TORPOT.src.level.entities.living
     public class EntityPlayer : EntityLiving
     {
 
-        private Animation sprint, idle, jump;
+        private Animation sprint, idle, jump, shooting_run, shooting_still;
         private int direction = 1;
 
         public bool wallsliding = false;
@@ -22,7 +22,7 @@ namespace TORPOT.src.level.entities.living
 
         private enum STATE
         {
-            sprint, idle, jumping
+            sprint, idle, jumping, shooting_run, shooting_still
         }
 
         private STATE playerState = STATE.idle;
@@ -37,6 +37,8 @@ namespace TORPOT.src.level.entities.living
             sprint = new Animation(3, 0, 0, 64, 64, 448, 64, true);
             idle = new Animation(35, 0, 3, 64, 64, 128, 64, true);
             jump = new Animation(0, 0, 5, 64, 64, 384, 64, true);
+            shooting_run = new Animation(3, 0, 1, 64, 64, 576, 64, false);
+            shooting_still = new Animation(4, 0, 2, 64, 64, 192, 64, false);
         }
 
         public override void Update()
@@ -84,7 +86,32 @@ namespace TORPOT.src.level.entities.living
                 InputHandler.releaseShoot = true;
                 InputHandler.shoot = false;
 
-                level.AddEntity(new ProjectileShell(x, y, direction));
+                level.AddEntity(new ProjectileShell(x + 8, y + (8), direction));
+                if (playerState == STATE.idle) playerState = STATE.shooting_still;
+                else playerState = STATE.shooting_run;
+                shooting_still.Reset();
+                shooting_run.Reset();
+            }
+
+            if(playerState == STATE.shooting_still)
+            {
+                shooting_still.Update();
+                if (shooting_still.hasEnded) playerState = STATE.idle;
+            }else if(playerState == STATE.shooting_run)
+            {
+                shooting_run.Update();
+                if (shooting_run.hasEnded) playerState = STATE.idle;
+            }
+
+            foreach(Entity e in level.entities)
+            {
+                if(!(e is EntityPlayer) && e is EntityEnemy)
+                {
+                    if (((EntityEnemy)e).GetBoundsFull().Intersects(GetBoundsFull()))
+                    {
+                        health -= ((EntityEnemy)e).attackDamage;
+                    }
+                }
             }
         }
 
@@ -100,10 +127,13 @@ namespace TORPOT.src.level.entities.living
                 if (move.X > 0) direction = 1;
                 else direction = -1;
                 x += move.X;
-                sprint.Update();
-                playerState = STATE.sprint;
+                if (playerState != STATE.shooting_still && playerState != STATE.shooting_run)
+                {
+                    sprint.Update();
+                    playerState = STATE.sprint;
+                }
             }
-            else
+            else if(playerState != STATE.shooting_still)
             {
                 idle.Update();
                 playerState = STATE.idle;
@@ -114,11 +144,18 @@ namespace TORPOT.src.level.entities.living
         public override void Draw(SpriteBatch batch)
         {
             bool flip = direction == 1 ? false : true;
-            if(wallsliding) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, new Rectangle(0, 4*64, 64, 64), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
+
+#pragma warning disable CS0618 // Type or member is obsolete
+            if (wallsliding) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, new Rectangle(0, 4*64, 64, 64), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
             else if(playerState == STATE.sprint) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, sprint.GetRectangle(), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
             else if (playerState == STATE.idle) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, idle.GetRectangle(), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
             else if(playerState == STATE.jumping) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, jump.GetRectangle(), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
+            else if(playerState == STATE.shooting_still) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, shooting_still.GetRectangle(), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
+            else if(playerState == STATE.shooting_run) batch.Draw(resources.images.GetImage("player"), new Vector2(GetXi(), GetYi()), null, shooting_run.GetRectangle(), new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, direction == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0.5f);
+#pragma warning restore CS0618 // Type or member is obsolete
+
         }
+
 
 
     }
