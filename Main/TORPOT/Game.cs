@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
+using TORPOT.src.utils.gui;
 
 namespace TORPOT
 {
@@ -13,6 +14,7 @@ namespace TORPOT
         SpriteBatch spriteBatch;
         ResourceManager resources;
         InputHandler inputHandler;
+        SpriteBatch hudBatch;
 
         public static Camera camera;
 
@@ -52,6 +54,7 @@ namespace TORPOT
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            hudBatch = new SpriteBatch(GraphicsDevice);
             resources.LoadContent(Content);
         }
 
@@ -81,7 +84,7 @@ namespace TORPOT
             if(state == STATE.Game)
             {
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
-                level.Draw(spriteBatch);
+                level.Draw(spriteBatch, hudBatch);
             }
 
             spriteBatch.End();
