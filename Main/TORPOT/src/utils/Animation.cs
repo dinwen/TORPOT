@@ -43,7 +43,7 @@ namespace SpelProjekt.src.utils
                         current.X = startX;
                         current.Y += height;
                     }
-                    if (current.Y >= maxHeight)
+                    if (current.Y >= maxHeight + startY)
                     {
                         if (loop)
                         {
@@ -63,6 +63,32 @@ namespace SpelProjekt.src.utils
             this.hasEnded = false;
             current.X = startX;
             current.Y = startY;
+        }
+
+        public void setFrame(int frame)
+        {
+            Reset();
+            for(int i = 0; i < frame; i++)
+            {
+                current.X += width;
+                if (current.X >= maxWidth)
+                {
+                    current.X = startX;
+                    current.Y += height;
+                }
+                if (current.Y >= maxHeight + startY)
+                {
+                    if (loop)
+                    {
+                        current.X = startX;
+                        current.Y = startY;
+                    }
+                    else
+                    {
+                        hasEnded = true;
+                    }
+                }
+            }
         }
 
         public Rectangle GetRectangle()

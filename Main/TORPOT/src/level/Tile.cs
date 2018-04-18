@@ -23,16 +23,21 @@ namespace Svennebanan
             this.offset = offset;
         }
 
-        public Tile(Vector2 position, Tile tile)
+        public Tile(Vector2 position, Tile tile, bool collisionEnabled)
         {
             this.position = position;
             this.texturePosition = tile.texturePosition;
-            this.solid = tile.solid;
 
-            this.offset = tile.offset;
-            collision = offset;
-            collision.X += (int)position.X;
-            collision.Y += (int)position.Y;
+            if (collisionEnabled)
+            {
+                this.solid = tile.solid;
+                this.offset = tile.offset;
+                collision = offset;
+                collision.X += (int)position.X;
+                collision.Y += (int)position.Y;
+            }
+            else this.solid = false;
+
         }
 
         public Rectangle GetBounds()
