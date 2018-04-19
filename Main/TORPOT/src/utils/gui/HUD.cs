@@ -17,7 +17,8 @@ namespace TORPOT.src.utils.gui
         public float health = 178;
 
         Vector2 position = new Vector2();
-      
+
+        public bool itemOne, itemTwo, itemThree, itemFour;
 
         public HUD(Level level)
         {
@@ -35,9 +36,17 @@ namespace TORPOT.src.utils.gui
             batch.Draw(level.resourceManager.images.GetImage("HealthbarFrame"), new Rectangle(0, 0, 178, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.2f);
             batch.Draw(level.resourceManager.images.GetImage("HealthbarHealth"), new Rectangle(0, 0, (int)health, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.1f);
             batch.Draw(level.resourceManager.images.GetImage("HealthbarBackground"), new Rectangle(0, 0, 178, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.3f);
-            batch.Draw(level.resourceManager.images.GetImage("ItemHUD"), new Rectangle(850, 0, 64, 116), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 1f);
-            
-            
+
+#pragma warning disable CS0618 // Type or member is obsolete
+
+            batch.Draw(level.resourceManager.images.GetImage("ItemHUD"), new Vector2(Game.WIDTH - 150, 15), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+
+            if (itemOne) batch.Draw(level.resourceManager.images.GetImage("shell"), new Vector2(Game.WIDTH- 102, 37), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+
+#pragma warning restore CS0618 // Type or member is obsolete
+
+
+
 
 
         }

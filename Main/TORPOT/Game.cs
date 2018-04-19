@@ -24,16 +24,14 @@ namespace TORPOT
         public static Level levelOne;
 
 
-        public static int WIDTH = 1920 / 2, HEIGHT = 1080 / 2;
+        public static int WIDTH = 1920, HEIGHT = 1080;
 
         public enum STATE
         {
             Game, Menu, Quit, Levelhub, Levelone, Leveltwo,
         };
 
-        //public static STATE state = STATE.Game;
-        public static STATE state;
-
+        public static STATE state = STATE.Menu;
 
         public Game()
         {
@@ -43,7 +41,7 @@ namespace TORPOT
             graphics.PreferredBackBufferHeight = HEIGHT;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()
@@ -52,8 +50,8 @@ namespace TORPOT
 
             inputHandler = new InputHandler();
             camera = new Svennebanan.Camera(GraphicsDevice.Viewport);
-            camera.Zoom = 1f;
-            
+
+            camera.Zoom = 2f;
 
             levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
@@ -107,7 +105,10 @@ namespace TORPOT
         {
             GraphicsDevice.Clear(Color.DarkCyan);
 
+            hudBatch.Begin(SpriteSortMode.BackToFront, null);
+
             switch (state)
+
             {
                 case STATE.Levelhub:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
@@ -127,6 +128,13 @@ namespace TORPOT
                     spriteBatch.End();
                     break;
             }
+            //else if(state == STATE.Menu)
+            //{
+            //    spriteBatch.Begin();
+            //    mainMenu.Draw(spriteBatch);
+            //}
+            //spriteBatch.End();
+            //hudBatch.End();
 
             //if(state == STATE.Game)
             //{
@@ -135,6 +143,7 @@ namespace TORPOT
             //}
 
             //spriteBatch.End();
+
 
             base.Draw(gameTime);
         }
