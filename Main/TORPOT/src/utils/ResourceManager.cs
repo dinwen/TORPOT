@@ -41,6 +41,7 @@ namespace Svennebanan
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("Lifebar frame"));
             images.AddImage("ItemHUD", content.Load<Texture2D>("itemhud"));
+            images.AddImage("LavaWave", content.Load<Texture2D>("LavaWave"));
 
 
 

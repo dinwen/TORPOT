@@ -16,6 +16,7 @@ namespace TORPOT.src.level.entities.living
 
         private Animation sprint, idle, jump, shooting_run, shooting_still;
         private int direction = 1;
+       
 
         public bool wallsliding = false;
         private int wallslideCooldown = 10;
@@ -42,8 +43,16 @@ namespace TORPOT.src.level.entities.living
             health = 178;
         }
 
+     
+
+
         public override void Update()
         {
+            if(health <= 0)
+            {
+                level.Reset();
+            }
+
             wallsliding = false;
             base.Update();
 
