@@ -55,9 +55,8 @@ namespace TORPOT
 
             levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
-            state = STATE.Levelhub;
-            levelHub = new LevelOne(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
+            state = STATE.Levelhub;
         }
 
         protected override void LoadContent()
@@ -88,10 +87,6 @@ namespace TORPOT
                     levelOne.Update(gameTime);
                     break;
             }
-            //else if(state == STATE.Menu)
-            //{
-            //    mainMenu.Update();
-            //}
 
             //if(state == STATE.Game)
             //{
