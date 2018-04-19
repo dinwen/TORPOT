@@ -11,24 +11,19 @@ using TORPOT.src.utils.gui;
 
 namespace TORPOT.level.Levels
 {
-    public class LevelOne : Level
+    public class LevelHub : Level
     {
         Random rdn = new Random();
-        public LevelOne(ResourceManager resources) : base(resources)
+        public LevelHub(ResourceManager resources) : base(resources)
         {
 
-            LoadLevel("Content/levels/NewTest.txt", "Content/levels/j.txt");
-            AddEntity(new EntityPlayer(400, 150));
-            AddEntity(new EntityEnemy01(400, 150));
+            LoadLevel("Content/levels/Test.txt");
+
+            AddEntity(new EntityPlayer(300, 0));
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (InputHandler.interactDoor)
-            {
-                Game.state = Game.STATE.Levelhub;
-                //Game.SwitchLevel(new LevelHub(resourceManager));
-            }
             base.Update(gameTime);
             //AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
             AddEntity(new ParticleTest(GetPlayer().GetX(), GetPlayer().GetY()));

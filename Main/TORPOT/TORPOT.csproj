@@ -55,6 +55,7 @@
     <Compile Include="src\level\entities\projectile\EntityProjectile.cs" />
     <Compile Include="src\level\entities\projectile\ProjectileShell.cs" />
     <Compile Include="src\level\Level.cs" />
+    <Compile Include="src\level\Levels\LevelHub.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
     <Compile Include="src\level\Tile.cs" />
     <Compile Include="Program.cs" />
