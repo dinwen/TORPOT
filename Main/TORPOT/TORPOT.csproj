@@ -51,6 +51,7 @@
     <Compile Include="src\level\entities\particles\EntityParticle.cs" />
     <Compile Include="src\level\entities\particles\ParticleTest.cs" />
     <Compile Include="src\level\Level.cs" />
+    <Compile Include="src\level\Levels\LevelHub.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
     <Compile Include="src\level\Tile.cs" />
     <Compile Include="Program.cs" />

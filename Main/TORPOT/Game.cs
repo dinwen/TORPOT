@@ -25,7 +25,7 @@ namespace TORPOT
 
         public enum STATE
         {
-            Game, Menu, Quit, LevelHub, LevelOne, LevelTwo,
+            Game, Menu, Quit, Levelhub, Levelone, Leveltwo,
         };
 
         //public static STATE state = STATE.Game;
@@ -52,10 +52,10 @@ namespace TORPOT
             camera.Zoom = 1f;
             
 
-            levelHub = new LevelOne(resources);
+            levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
 
-            state = STATE.LevelHub;
+            state = STATE.Levelhub;
         }
 
         protected override void LoadContent()
@@ -77,11 +77,11 @@ namespace TORPOT
 
             switch (state)
             {
-                case STATE.LevelHub:
+                case STATE.Levelhub:
                     levelHub.Update(gameTime);
                     break;
 
-                case STATE.LevelOne:
+                case STATE.Levelone:
                     levelOne.Update(gameTime);
                     break;
             }
@@ -100,13 +100,13 @@ namespace TORPOT
 
             switch (state)
             {
-                case STATE.LevelHub:
+                case STATE.Levelhub:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
                     levelHub.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
 
-                case STATE.LevelOne:
+                case STATE.Levelone:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
                     levelOne.Draw(spriteBatch);
                     spriteBatch.End();
