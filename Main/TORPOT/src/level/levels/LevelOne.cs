@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TORPOT.src.level.entities;
 using TORPOT.src.level.entities.living;
 using TORPOT.src.level.entities.particles;
 using TORPOT.src.utils.gui;
@@ -22,6 +23,8 @@ namespace TORPOT.level.Levels
 
             AddEntity(new EntityPlayer(400, 150));
             AddEntity(new EntityEnemy01(400, 150));
+
+            AddEntity(new EntityItem(400, 24*32- 8, "shell"));
         }
 
         public override void Update(GameTime gameTime)

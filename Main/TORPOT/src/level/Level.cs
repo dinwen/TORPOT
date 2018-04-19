@@ -71,16 +71,15 @@ namespace TORPOT.level
             foreach (Tile t in tiles)
             {
                
-                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
+                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0.4f);
             }
 
             for (int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Draw(batch);
             }
-            hudBatch.Begin(SpriteSortMode.BackToFront, null);
+
             hud.Draw(hudBatch);
-            hudBatch.End();
 
         }
 
