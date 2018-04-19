@@ -19,14 +19,16 @@ namespace TORPOT
 
         MainMenu mainMenu;
         public static Camera camera;
+        
+        public static Level levelHub;
+        public static Level levelOne;
 
-        public static Level level;
 
         public static int WIDTH = 1920, HEIGHT = 1080;
 
         public enum STATE
         {
-            Game, Menu, Quit
+            Game, Menu, Quit, Levelhub, Levelone, Leveltwo,
         };
 
         public static STATE state = STATE.Menu;
@@ -48,11 +50,14 @@ namespace TORPOT
 
             inputHandler = new InputHandler();
             camera = new Svennebanan.Camera(GraphicsDevice.Viewport);
+
             camera.Zoom = 2f;
 
+            levelHub = new LevelHub(resources);
+            levelOne = new LevelOne(resources);
+            state = STATE.Levelhub;
             level = new LevelOne(resources);
             mainMenu = new MainMenu(resources, new Vector2(), level);
-
         }
 
         protected override void LoadContent()
@@ -73,14 +78,25 @@ namespace TORPOT
 
             inputHandler.Update();
 
-            if(state == STATE.Game)
+            switch (state)
             {
-                level.Update(gameTime);
+                case STATE.Levelhub:
+                    levelHub.Update(gameTime);
+                    break;
+
+                case STATE.Levelone:
+                    levelOne.Update(gameTime);
+                    break;
             }
-            else if(state == STATE.Menu)
-            {
-                mainMenu.Update();
-            }
+            //else if(state == STATE.Menu)
+            //{
+            //    mainMenu.Update();
+            //}
+
+            //if(state == STATE.Game)
+            //{
+            //    level.Update(gameTime);
+            //}
 
             base.Update(gameTime);
         }
@@ -88,19 +104,46 @@ namespace TORPOT
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkCyan);
+
             hudBatch.Begin(SpriteSortMode.BackToFront, null);
-            if(state == STATE.Game)
+
+            switch (state)
+
             {
-                spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
-                level.Draw(spriteBatch, hudBatch);
+                case STATE.Levelhub:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelHub.Draw(spriteBatch);
+                    spriteBatch.End();
+                    break;
+
+                case STATE.Levelone:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelOne.Draw(spriteBatch);
+                    spriteBatch.End();
+                    break;
+                    
+                case STATE.Menu:
+                    spritebBatch.Begin();
+                    mainMenu.Draw(spritebatch);
+                    spriteBatch.End();
+                    break;
             }
-            else if(state == STATE.Menu)
-            {
-                spriteBatch.Begin();
-                mainMenu.Draw(spriteBatch);
-            }
-            spriteBatch.End();
-            hudBatch.End();
+            //else if(state == STATE.Menu)
+            //{
+            //    spriteBatch.Begin();
+            //    mainMenu.Draw(spriteBatch);
+            //}
+            //spriteBatch.End();
+            //hudBatch.End();
+
+            //if(state == STATE.Game)
+            //{
+            //    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+            //    level.Draw(spriteBatch);
+            //}
+
+            //spriteBatch.End();
+
 
             base.Draw(gameTime);
         }

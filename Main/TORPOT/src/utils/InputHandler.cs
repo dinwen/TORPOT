@@ -15,6 +15,7 @@ namespace Svennebanan
         public static bool up;
         public static bool down;
         public static bool jump;
+        public static bool interactDoor;
         public static bool shoot;
 
         public static bool releaseJump = false;
@@ -27,6 +28,15 @@ namespace Svennebanan
         public void Update()
         {
             GamePadCapabilities capabilities = GamePad.GetCapabilities(PlayerIndex.One);
+
+            if (Keyboard.GetState().IsKeyDown(Keys.K))
+            {
+                interactDoor = true;
+            }
+            else
+            {
+                interactDoor = false;
+            }
 
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
