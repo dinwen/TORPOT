@@ -25,6 +25,14 @@ namespace TORPOT.level.Levels
             AddEntity(new EntityItem(400, 24*32- 8, "shell"));
         }
 
+        public override void Reset()
+        {
+            base.Reset();
+            LoadLevel("Content/levels/NewTest.txt", "Content/levels/j.txt");
+            AddEntity(new EntityPlayer(400, 150));
+            AddEntity(new EntityEnemy01(400, 150));
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (InputHandler.interactDoor)

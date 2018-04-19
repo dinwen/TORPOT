@@ -33,6 +33,12 @@ namespace TORPOT.level
             this.hud = new HUD(this);
         }
 
+        public virtual void Reset()
+        {
+            entities.Clear();
+            tiles.Clear();
+              
+        }
         public void LoadLevel(string levelPath, string layerPath)
         {
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
