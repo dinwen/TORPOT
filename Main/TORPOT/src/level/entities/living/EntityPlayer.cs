@@ -16,6 +16,7 @@ namespace TORPOT.src.level.entities.living
 
         private Animation sprint, idle, jump, shooting_run, shooting_still;
         private int direction = 1;
+       
 
         public bool wallsliding = false;
         private int wallslideCooldown = 10;
@@ -35,15 +36,23 @@ namespace TORPOT.src.level.entities.living
             this.jumpHeight = 12;
 
             sprint = new Animation(3, 0, 0, 64, 64, 448, 64, true);
-            idle = new Animation(35, 0, 3, 64, 64, 128, 64, true);
+            idle = new Animation(35, 0, 3, 64, 64, 256, 64, true);
             jump = new Animation(0, 0, 5, 64, 64, 384, 64, true);
             shooting_run = new Animation(3, 0, 1, 64, 64, 576, 64, false);
             shooting_still = new Animation(4, 0, 2, 64, 64, 192, 64, false);
             health = 178;
         }
 
+     
+
+
         public override void Update()
         {
+            if(health <= 0)
+            {
+                level.Reset();
+            }
+
             wallsliding = false;
             base.Update();
 
@@ -110,6 +119,15 @@ namespace TORPOT.src.level.entities.living
                     if (((EntityEnemy)e).GetBoundsFull().Intersects(GetBoundsFull()))
                     {
                         health -= ((EntityEnemy)e).attackDamage;
+                    }
+                }
+                else if(e is EntityItem)
+                {
+                    if (((EntityItem)e).GetBounds().Intersects(GetBoundsFull()))
+                    {
+                        Console.WriteLine("Pickup!");
+                        if (((EntityItem)e).sprite == "shell") level.hud.itemOne = true;
+                        e.Remove();
                     }
                 }
             }

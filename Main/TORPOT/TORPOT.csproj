@@ -46,10 +46,12 @@
     <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="src\level\entities\Entity.cs" />
+    <Compile Include="src\level\entities\EntityItem.cs" />
     <Compile Include="src\level\entities\living\EntityEnemy01.cs" />
     <Compile Include="src\level\entities\living\EntityLiving.cs" />
     <Compile Include="src\level\entities\living\EntityMonster.cs" />
     <Compile Include="src\level\entities\living\EntityPlayer.cs" />
+    <Compile Include="src\level\entities\living\EntityWave.cs" />
     <Compile Include="src\level\entities\particles\EntityParticle.cs" />
     <Compile Include="src\level\entities\particles\ParticleTest.cs" />
     <Compile Include="src\level\entities\projectile\EntityProjectile.cs" />
@@ -111,6 +113,7 @@
     <Content Include="Content\Levels\LevelHub2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\itemhud.png" />
     <Content Include="Content\Levels\NewTest.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -131,8 +134,10 @@
     <Content Include="Content\lifebar frame.png" />
     <Content Include="Content\player.png" />
     <Content Include="Content\playerSheet.png" />
+    <Content Include="Content\projectile.png" />
     <Content Include="Content\testParticle.png" />
     <Content Include="Content\Tile sheet v.3 32x32.png" />
+    <Content Include="Content\walker sprite sheet.png" />
     <Content Include="Icon.ico" />
     <Content Include="obj\x86\Debug\TORPOT.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\TORPOT.exe" />

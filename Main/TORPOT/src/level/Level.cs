@@ -33,6 +33,12 @@ namespace TORPOT.level
             this.hud = new HUD(this);
         }
 
+        public virtual void Reset()
+        {
+            entities.Clear();
+            tiles.Clear();
+              
+        }
         public void LoadLevel(string levelPath, string layerPath)
         {
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
@@ -71,16 +77,15 @@ namespace TORPOT.level
             foreach (Tile t in tiles)
             {
                
-                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
+                batch.Draw(resourceManager.images.GetImage("Spritesheet"), t.position, t.texturePosition, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0.4f);
             }
 
             for (int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Draw(batch);
             }
-            hudBatch.Begin(SpriteSortMode.BackToFront, null);
+
             hud.Draw(hudBatch);
-            hudBatch.End();
 
         }
 

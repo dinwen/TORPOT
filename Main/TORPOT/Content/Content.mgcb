@@ -74,6 +74,7 @@
 /build:projectile.png
 
 #begin lifebar frame.png
+#begin walker sprite sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -86,6 +87,9 @@
 /build:lifebar frame.png
 
 #begin walker sprite sheet.png
+/build:walker sprite sheet.png
+
+#begin shell.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -96,6 +100,19 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:walker sprite sheet.png
+/build:shell.png
+
+#begin itemhud.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:itemhud.png
 
 #begin Lifebar black.png
 /importer:TextureImporter
@@ -121,7 +138,7 @@
 /processorParam:TextureFormat=Color
 /build:Lifebar color.png
 
-#begin itemhud.png
+#begin lifebar frame.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -131,7 +148,32 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:itemhud.png
+/build:lifebar frame.png
+
+#begin hero sprite sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:hero sprite sheet.png
+
+#begin LavaWave.png
+#begin Tile sheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LavaWave.png
 
 #begin Tile sheet.png
 /importer:TextureImporter

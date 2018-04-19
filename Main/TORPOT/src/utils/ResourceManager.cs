@@ -27,10 +27,12 @@ namespace Svennebanan
 
         public void LoadContent(ContentManager content)
         {
-            images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet v.3 32x32"));
+            images.AddImage("Spritesheet", content.Load<Texture2D>("Tile sheet"));
 
-            images.AddImage("player", content.Load<Texture2D>("playerSheet"));
+            images.AddImage("player", content.Load<Texture2D>("hero sprite sheet"));
             images.AddImage("walker", content.Load<Texture2D>("walker sprite sheet"));
+
+            images.AddImage("shell", content.Load<Texture2D>("shell"));
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
 
@@ -41,6 +43,7 @@ namespace Svennebanan
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("Lifebar frame"));
             images.AddImage("ItemHUD", content.Load<Texture2D>("itemhud"));
+            images.AddImage("LavaWave", content.Load<Texture2D>("LavaWave"));
 
 
 
