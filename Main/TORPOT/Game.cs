@@ -24,7 +24,7 @@ namespace TORPOT
         public static Level levelOne;
 
 
-        public static int WIDTH = 1920 / 2, HEIGHT = 1080 / 2;
+        public static int WIDTH = 1920, HEIGHT = 1080;
 
         public enum STATE
         {
@@ -57,9 +57,8 @@ namespace TORPOT
 
             levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
+            mainMenu = new MainMenu(resources, new Vector2(), levelHub);
             state = STATE.Levelhub;
-            level = new LevelOne(resources);
-            mainMenu = new MainMenu(resources, new Vector2(), level);
         }
 
         protected override void LoadContent()
@@ -90,10 +89,6 @@ namespace TORPOT
                     levelOne.Update(gameTime);
                     break;
             }
-            else if(state == STATE.Menu)
-            {
-                mainMenu.Update();
-            }
 
             //if(state == STATE.Game)
             //{
@@ -111,19 +106,19 @@ namespace TORPOT
             {
                 case STATE.Levelhub:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
-                    levelHub.Draw(spriteBatch);
+                    levelHub.Draw(spriteBatch, hudBatch);
                     spriteBatch.End();
                     break;
 
                 case STATE.Levelone:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
-                    levelOne.Draw(spriteBatch);
+                    levelOne.Draw(spriteBatch, hudBatch);
                     spriteBatch.End();
                     break;
                     
                 case STATE.Menu:
-                    spritebBatch.Begin();
-                    mainMenu.Draw(spritebatch);
+                    spriteBatch.Begin();
+                    mainMenu.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
             }

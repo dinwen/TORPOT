@@ -28,9 +28,9 @@ namespace TORPOT.src.gui
             this.res = res;
            
 
-            start = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)3.5 - 116 / (float)3.5), 64, 116, "Play", level);
+            start = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)3.5 - 116 / (float)3.5), 64*2, 116*2, "Play", level);
 
-            quit = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)1.25 - 116 / (float)1.25), 64, 116, "Quit", level);
+            quit = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)1.25 - 116 / (float)1.25), 64*2, 116*2, "Quit", level);
 
         }
 
@@ -44,7 +44,7 @@ namespace TORPOT.src.gui
 
             if (start.trigger)
             {
-                Game.state = Game.STATE.Game;
+                Game.state = Game.STATE.Levelhub;
                 start.trigger = false;
             }
 

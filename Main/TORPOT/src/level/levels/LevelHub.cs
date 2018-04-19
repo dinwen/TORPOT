@@ -17,13 +17,22 @@ namespace TORPOT.level.Levels
         public LevelHub(ResourceManager resources) : base(resources)
         {
 
-            LoadLevel("Content/levels/Test.txt");
+            LoadLevel("Content/levels/LevelHub.txt", "Content/levels/LevelHub2.txt");
 
-            AddEntity(new EntityPlayer(300, 0));
+            AddEntity(new EntityPlayer(0, 0));
         }
 
         public override void Update(GameTime gameTime)
         {
+            //if(GetPlayer().GetX() == )
+            //{
+            //    if (InputHandler.interactDoor)
+            //    {
+            //        Game.state = Game.STATE.Levelhub;
+            //        //Game.SwitchLevel(new LevelHub(resourceManager));
+            //    }
+            //}
+
             base.Update(gameTime);
             //AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
             AddEntity(new ParticleTest(GetPlayer().GetX(), GetPlayer().GetY()));
