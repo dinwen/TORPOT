@@ -17,9 +17,9 @@ namespace TORPOT.level.Levels
         public LevelOne(ResourceManager resources) : base(resources)
         {
 
-            LoadLevel("Content/levels/TestLevel.txt");
-
-            AddEntity(new EntityPlayer(300, 150));
+            LoadLevel("Content/levels/NewTest.txt", "Content/levels/j.txt");
+            AddEntity(new EntityPlayer(400, 150));
+            AddEntity(new EntityEnemy01(400, 150));
         }
 
         public override void Update(GameTime gameTime)

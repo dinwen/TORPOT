@@ -46,10 +46,14 @@
     <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="src\level\entities\Entity.cs" />
+    <Compile Include="src\level\entities\living\EntityEnemy01.cs" />
     <Compile Include="src\level\entities\living\EntityLiving.cs" />
+    <Compile Include="src\level\entities\living\EntityMonster.cs" />
     <Compile Include="src\level\entities\living\EntityPlayer.cs" />
     <Compile Include="src\level\entities\particles\EntityParticle.cs" />
     <Compile Include="src\level\entities\particles\ParticleTest.cs" />
+    <Compile Include="src\level\entities\projectile\EntityProjectile.cs" />
+    <Compile Include="src\level\entities\projectile\ProjectileShell.cs" />
     <Compile Include="src\level\Level.cs" />
     <Compile Include="src\level\Levels\LevelHub.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
@@ -59,7 +63,9 @@
     <Compile Include="src\utils\Animation.cs" />
     <Compile Include="src\utils\AudioHandler.cs" />
     <Compile Include="src\utils\Camera.cs" />
+    <Compile Include="src\utils\gui\Button.cs" />
     <Compile Include="src\utils\gui\HUD.cs" />
+    <Compile Include="src\utils\gui\MainMenu.cs" />
     <Compile Include="src\utils\ImageHandler.cs" />
     <Compile Include="src\utils\InputHandler.cs" />
     <Compile Include="src\utils\LevelLoader.cs" />
@@ -97,12 +103,24 @@
     <Content Include="bin\Windows\x86\Debug\TORPOT.pdb" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.vshost.exe" />
     <Content Include="Content\hero sprite sheet 64x64.png" />
+    <Content Include="Content\Levels\NewTest.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Levels\Test.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\TestLayer.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\TestLayer2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Levels\TestLevel.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Lifebar black.png" />
+    <Content Include="Content\Lifebar color.png" />
+    <Content Include="Content\lifebar frame.png" />
     <Content Include="Content\player.png" />
     <Content Include="Content\playerSheet.png" />
     <Content Include="Content\testParticle.png" />
