@@ -144,7 +144,8 @@ namespace Svennebanan
 
 
             //sounds
-            //audio.AddAudio(0, content.Load<SoundEffect>("fly"));
+            audio.AddAudio(0, content.Load<SoundEffect>("HubMusic"));
+            audio.AddAudio(1, content.Load<SoundEffect>("Running"));
 
             //font = content.Load<SpriteFont>("Score");
         }
