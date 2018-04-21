@@ -5,6 +5,7 @@ using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
 using TORPOT.src.gui;
+using TORPOT.src.level.Levels;
 using TORPOT.src.utils.gui;
 
 namespace TORPOT
@@ -22,13 +23,15 @@ namespace TORPOT
         
         public static Level levelHub;
         public static Level levelOne;
-
+        public static Level levelWater;
+        public static Level levelLava;
+        public static Level levelForest;
 
         public static int WIDTH = 1920, HEIGHT = 1080;
 
         public enum STATE
         {
-            Game, Menu, Quit, Levelhub, Levelone, Leveltwo,
+            Game, Menu, Quit, Levelhub, Levelone, Leveltwo, Levelwater, Levellava, Levelforest
         };
 
         public static STATE state = STATE.Menu;
@@ -55,8 +58,11 @@ namespace TORPOT
 
             levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
+            levelWater = new LevelWater(resources);
+            levelLava = new LevelLava(resources);
+            levelForest = new LevelForest(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
-            state = STATE.Levelhub;
+            state = STATE.Levellava;
         }
 
         protected override void LoadContent()
@@ -85,6 +91,16 @@ namespace TORPOT
 
                 case STATE.Levelone:
                     levelOne.Update(gameTime);
+                    break;
+
+                case STATE.Levelwater:
+                    levelWater.Update(gameTime);
+                    break;
+                case STATE.Levellava:
+                    levelLava.Update(gameTime);
+                    break;
+                case STATE.Levelforest:
+                    levelForest.Update(gameTime);
                     break;
             }
 
@@ -116,7 +132,25 @@ namespace TORPOT
                     levelOne.Draw(spriteBatch, hudBatch);
                     spriteBatch.End();
                     break;
-                    
+
+                case STATE.Levelwater:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelWater.Draw(spriteBatch, hudBatch);
+                    spriteBatch.End();
+                    break;
+
+                case STATE.Levellava:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelLava.Draw(spriteBatch, hudBatch);
+                    spriteBatch.End();
+                    break;
+
+                case STATE.Levelforest:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelForest.Draw(spriteBatch, hudBatch);
+                    spriteBatch.End();
+                    break;
+
                 case STATE.Menu:
                     spriteBatch.Begin();
                     mainMenu.Draw(spriteBatch);
@@ -129,7 +163,7 @@ namespace TORPOT
             //    mainMenu.Draw(spriteBatch);
             //}
             //spriteBatch.End();
-            //hudBatch.End();
+            hudBatch.End();
 
             //if(state == STATE.Game)
             //{

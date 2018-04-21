@@ -57,10 +57,13 @@
     <Compile Include="src\level\entities\projectile\EntityProjectile.cs" />
     <Compile Include="src\level\entities\projectile\ProjectileShell.cs" />
     <Compile Include="src\level\Level.cs" />
+    <Compile Include="src\level\Levels\LevelForest.cs" />
     <Compile Include="src\level\Levels\LevelHub.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="src\level\Levels\LevelLava.cs" />
     <Compile Include="src\level\Levels\LevelOne.cs" />
+    <Compile Include="src\level\Levels\LevelWater.cs" />
     <Compile Include="src\level\Tile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,26 +110,23 @@
     <Content Include="bin\Windows\x86\Debug\TORPOT.pdb" />
     <Content Include="bin\Windows\x86\Debug\TORPOT.vshost.exe" />
     <Content Include="Content\hero sprite sheet 64x64.png" />
-    <Content Include="Content\Levels\LevelHub.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Levels\LevelHub2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\itemhud.png" />
-    <Content Include="Content\Levels\NewTest.txt">
+    <Content Include="Content\Levels\forest map v2._interaktiv.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\Test.txt">
+    <Content Include="Content\Levels\forest map v2._overlay.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\TestLayer.txt">
+    <Content Include="Content\Levels\lava map v2._interaktiv.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\TestLayer2.txt">
+    <Content Include="Content\Levels\lava map v2._overlay.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Levels\TestLevel.txt">
+    <Content Include="Content\Levels\water map v2._interaktiv.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\water map v2._overlay.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Lifebar black.png" />
