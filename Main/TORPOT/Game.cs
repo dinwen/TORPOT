@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
@@ -17,6 +19,11 @@ namespace TORPOT
         ResourceManager resources;
         InputHandler inputHandler;
         SpriteBatch hudBatch;
+        public SoundEffectInstance musicHub;
+        public SoundEffectInstance musicLava;
+        public SoundEffectInstance musicForest;
+        public SoundEffectInstance musicWater;
+        public SoundEffectInstance musicCloud;
 
         MainMenu mainMenu;
         public static Camera camera;
@@ -35,6 +42,7 @@ namespace TORPOT
         };
 
         public static STATE state = STATE.Menu;
+       
 
         public Game()
         {
@@ -45,6 +53,10 @@ namespace TORPOT
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
             graphics.IsFullScreen = true;
+
+
+            
+
         }
 
         protected override void Initialize()
@@ -63,6 +75,33 @@ namespace TORPOT
             levelForest = new LevelForest(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
             state = STATE.Levellava;
+
+            if(state == STATE.Levelhub)
+            {
+
+                musicHub.Play();
+            }
+            if (state == STATE.Levelone)
+            {
+
+                musicCloud.Play();
+                
+            }
+            if (state == STATE.Levellava)
+            {
+
+                musicLava.Play();
+            }
+            if (state == STATE.Levelwater)
+            {
+
+                musicWater.Play();
+            }
+            if(state == STATE.Levelforest)
+            {
+
+                musicForest.Play();
+            }
         }
 
         protected override void LoadContent()
@@ -70,6 +109,20 @@ namespace TORPOT
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hudBatch = new SpriteBatch(GraphicsDevice);
             resources.LoadContent(Content);
+                
+
+            musicHub = resources.audio.GetSound(0).CreateInstance();
+            musicLava = resources.audio.GetSound(5).CreateInstance();
+            musicForest = resources.audio.GetSound(2).CreateInstance();
+            musicCloud = resources.audio.GetSound(4).CreateInstance();
+            musicWater = resources.audio.GetSound(3).CreateInstance();
+
+
+            musicHub.IsLooped = true;
+            musicLava.IsLooped = true;
+            musicForest.IsLooped = true;
+            musicCloud.IsLooped = true;
+            musicWater.IsLooped = true;
         }
 
         protected override void UnloadContent()
@@ -78,6 +131,7 @@ namespace TORPOT
 
         protected override void Update(GameTime gameTime)
         {
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -87,20 +141,29 @@ namespace TORPOT
             {
                 case STATE.Levelhub:
                     levelHub.Update(gameTime);
+                    MediaPlayer.Stop();
                     break;
 
                 case STATE.Levelone:
                     levelOne.Update(gameTime);
+                    MediaPlayer.Stop();
+                    resources.audio.GetSound(0).Play();
                     break;
 
                 case STATE.Levelwater:
                     levelWater.Update(gameTime);
+                    MediaPlayer.Stop();
+                    resources.audio.GetSound(0).Play();
                     break;
+
                 case STATE.Levellava:
                     levelLava.Update(gameTime);
+                    
                     break;
+
                 case STATE.Levelforest:
                     levelForest.Update(gameTime);
+                    MediaPlayer.Stop();
                     break;
             }
 

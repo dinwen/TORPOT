@@ -95,6 +95,8 @@ namespace TORPOT.src.level.entities.living
             {
                 InputHandler.releaseShoot = true;
                 InputHandler.shoot = false;
+                health -= 5;
+                resources.audio.GetSound(6).Play();
 
                 level.AddEntity(new ProjectileShell(x + 8, y + (8), direction));
                 if (playerState == STATE.idle) playerState = STATE.shooting_still;

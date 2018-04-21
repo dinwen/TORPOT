@@ -146,6 +146,13 @@ namespace Svennebanan
             //sounds
             audio.AddAudio(0, content.Load<SoundEffect>("HubMusic"));
             audio.AddAudio(1, content.Load<SoundEffect>("Running"));
+            audio.AddAudio(2, content.Load<SoundEffect>("ForestMusic"));
+            audio.AddAudio(3, content.Load<SoundEffect>("WaterMusic"));
+            audio.AddAudio(4, content.Load<SoundEffect>("CloudMusic"));
+            audio.AddAudio(5, content.Load<SoundEffect>("LavaMusic"));
+
+            audio.AddAudio(6, content.Load<SoundEffect>("Drip"));
+
 
             //font = content.Load<SpriteFont>("Score");
         }

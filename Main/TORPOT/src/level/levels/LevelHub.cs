@@ -19,8 +19,7 @@ namespace TORPOT.level.Levels
         {
 
             LoadLevel("Content/levels/LevelHub.txt", "Content/levels/LevelHub2.txt");
-            resourceManager.audio.GetSound(0).Play();
-            MediaPlayer.IsRepeating = true;
+           
             AddEntity(new EntityPlayer(0, 0));
         }
 
