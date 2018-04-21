@@ -20,6 +20,8 @@ namespace TORPOT.src.level.Levels
             AddEntity(new EntityEnemy01(400, 150));
 
             AddEntity(new EntityItem(400, 24 * 32 - 8, "shell"));
+            
+
         }
 
         public override void Reset()

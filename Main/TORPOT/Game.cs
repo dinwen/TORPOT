@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using Svennebanan;
 using TORPOT.level;
 using TORPOT.level.Levels;
@@ -63,6 +64,32 @@ namespace TORPOT
             levelForest = new LevelForest(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
             state = STATE.Levellava;
+
+            if(state == STATE.Levelhub)
+            {
+                
+                resources.audio.GetSound(0).Play(0.7f, 0, 0);
+            }
+            if (state == STATE.Levelone)
+            {
+
+                resources.audio.GetSound(0).Play(0.7f, 0, 0);
+            }
+            if (state == STATE.Levellava)
+            {
+
+                resources.audio.GetSound(0).Play(0.7f, 0, 0);
+            }
+            if (state == STATE.Levelwater)
+            {
+
+                resources.audio.GetSound(0).Play(0.7f, 0, 0);
+            }
+            if(state == STATE.Levelforest)
+            {
+
+                resources.audio.GetSound(0).Play(0.7f, 0, 0);
+            }
         }
 
         protected override void LoadContent()
@@ -87,20 +114,29 @@ namespace TORPOT
             {
                 case STATE.Levelhub:
                     levelHub.Update(gameTime);
+                    MediaPlayer.Stop();
                     break;
 
                 case STATE.Levelone:
                     levelOne.Update(gameTime);
+                    MediaPlayer.Stop();
+                    resources.audio.GetSound(0).Play();
                     break;
 
                 case STATE.Levelwater:
                     levelWater.Update(gameTime);
+                    MediaPlayer.Stop();
+                    resources.audio.GetSound(0).Play();
                     break;
+
                 case STATE.Levellava:
                     levelLava.Update(gameTime);
+                    
                     break;
+
                 case STATE.Levelforest:
                     levelForest.Update(gameTime);
+                    MediaPlayer.Stop();
                     break;
             }
 
