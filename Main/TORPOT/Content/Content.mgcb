@@ -217,3 +217,9 @@
 /processorParam:Quality=Best
 /build:ForestMusic.wav
 
+#begin Drip.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Drip.wav
+
