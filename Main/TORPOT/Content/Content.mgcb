@@ -73,7 +73,6 @@
 /processorParam:TextureFormat=Color
 /build:projectile.png
 
-#begin lifebar frame.png
 #begin walker sprite sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -84,9 +83,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:lifebar frame.png
-
-#begin walker sprite sheet.png
 /build:walker sprite sheet.png
 
 #begin shell.png
@@ -99,7 +95,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:walker sprite sheet.png
 /build:shell.png
 
 #begin itemhud.png
@@ -163,7 +158,6 @@
 /build:hero sprite sheet.png
 
 #begin LavaWave.png
-#begin Tile sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -186,4 +180,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Tile sheet.png
+
+#begin HubMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:HubMusic.wav
+
+#begin Running.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Running.wav
 
