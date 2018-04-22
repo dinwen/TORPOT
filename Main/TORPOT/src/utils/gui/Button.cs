@@ -35,13 +35,14 @@ namespace Svennebanan.gui
 
         public void Update()
         {
-
+           
             if ((Mouse.GetState().X >= position.X && Mouse.GetState().X <= position.X + width) && (Mouse.GetState().Y >= position.Y && Mouse.GetState().Y <= position.Y + height))
             {
-
+                
 
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
+                      
                     trigger = true;
                 }
                 else

@@ -19,11 +19,8 @@ namespace TORPOT
         ResourceManager resources;
         InputHandler inputHandler;
         SpriteBatch hudBatch;
-        public SoundEffectInstance musicHub;
-        public SoundEffectInstance musicLava;
-        public SoundEffectInstance musicForest;
-        public SoundEffectInstance musicWater;
-        public SoundEffectInstance musicCloud;
+
+        
 
         MainMenu mainMenu;
         public static Camera camera;
@@ -74,55 +71,20 @@ namespace TORPOT
             levelLava = new LevelLava(resources);
             levelForest = new LevelForest(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
-            state = STATE.Levellava;
+            state = STATE.Menu;
 
-            if(state == STATE.Levelhub)
-            {
-
-                musicHub.Play();
-            }
-            if (state == STATE.Levelone)
-            {
-
-                musicCloud.Play();
-                
-            }
-            if (state == STATE.Levellava)
-            {
-
-                musicLava.Play();
-            }
-            if (state == STATE.Levelwater)
-            {
-
-                musicWater.Play();
-            }
-            if(state == STATE.Levelforest)
-            {
-
-                musicForest.Play();
-            }
+            
         }
 
         protected override void LoadContent()
         {
+            
             spriteBatch = new SpriteBatch(GraphicsDevice);
             hudBatch = new SpriteBatch(GraphicsDevice);
             resources.LoadContent(Content);
                 
 
-            musicHub = resources.audio.GetSound(0).CreateInstance();
-            musicLava = resources.audio.GetSound(5).CreateInstance();
-            musicForest = resources.audio.GetSound(2).CreateInstance();
-            musicCloud = resources.audio.GetSound(4).CreateInstance();
-            musicWater = resources.audio.GetSound(3).CreateInstance();
-
-
-            musicHub.IsLooped = true;
-            musicLava.IsLooped = true;
-            musicForest.IsLooped = true;
-            musicCloud.IsLooped = true;
-            musicWater.IsLooped = true;
+            
         }
 
         protected override void UnloadContent()
@@ -134,7 +96,7 @@ namespace TORPOT
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            mainMenu.Update();
             inputHandler.Update();
 
             switch (state)
@@ -147,13 +109,13 @@ namespace TORPOT
                 case STATE.Levelone:
                     levelOne.Update(gameTime);
                     MediaPlayer.Stop();
-                    resources.audio.GetSound(0).Play();
+                    
                     break;
 
                 case STATE.Levelwater:
                     levelWater.Update(gameTime);
                     MediaPlayer.Stop();
-                    resources.audio.GetSound(0).Play();
+                    
                     break;
 
                 case STATE.Levellava:
@@ -178,12 +140,16 @@ namespace TORPOT
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkCyan);
-
+            
             hudBatch.Begin(SpriteSortMode.BackToFront, null);
-
+            
             switch (state)
 
             {
+             
+
+
+
                 case STATE.Levelhub:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
                     levelHub.Draw(spriteBatch, hudBatch);
@@ -220,12 +186,13 @@ namespace TORPOT
                     spriteBatch.End();
                     break;
             }
+
             //else if(state == STATE.Menu)
             //{
-            //    spriteBatch.Begin();
-            //    mainMenu.Draw(spriteBatch);
+                //spriteBatch.Begin();
+               // mainMenu.Draw(spriteBatch);
             //}
-            //spriteBatch.End();
+            spriteBatch.End();
             hudBatch.End();
 
             //if(state == STATE.Game)

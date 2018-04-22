@@ -20,17 +20,19 @@ namespace TORPOT.src.gui
         private Button quit;
         private Game game;
 
+        private Level level;
+
 
 
 
         public MainMenu(ResourceManager res, Vector2 position, Level level)
         {
             this.res = res;
-           
+            this.level = level;
 
-            start = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)3.5 - 116 / (float)3.5), 64*2, 116*2, "Play", level);
+            start = new Button(new Vector2(1920 / 2 - 255 / 2, 1080 / (float)3.5 - 31 / (float)3.5), 255 * 2, 31 * 2, "Play", level);
 
-            quit = new Button(new Vector2(1920 / 2 - 64 / 2, 1080 / (float)1.25 - 116 / (float)1.25), 64*2, 116*2, "Quit", level);
+            quit = new Button(new Vector2(1920 / 2 - 255 / 2, 1080 / (float)1.25 - 31 / (float)1.25), 255 * 2, 31 * 2, "Quit", level);
 
         }
 
@@ -44,7 +46,8 @@ namespace TORPOT.src.gui
 
             if (start.trigger)
             {
-                Game.state = Game.STATE.Levelhub;
+                
+                Game.state = Game.STATE.Levellava;
                 start.trigger = false;
             }
 
@@ -60,7 +63,9 @@ namespace TORPOT.src.gui
 
         public void Draw(SpriteBatch batch)
         {
-            
+            batch.Draw(level.resourceManager.images.GetImage("mainMenu"), new Vector2(0, 0), Color.White);
+
+
             start.Draw(batch);
 
             quit.Draw(batch);

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Svennebanan;
 using System;
 using System.Collections.Generic;
@@ -21,16 +23,26 @@ namespace TORPOT.level
         public InputHandler inputHandler;
         public LevelLoader levelLoader;
         public HUD hud;
+        public Game game;
 
-        
+        public SoundEffectInstance musicHub;
+        public SoundEffectInstance musicLava;
+        public SoundEffectInstance musicForest;
+        public SoundEffectInstance musicWater;
+        public SoundEffectInstance musicCloud;
+
+
+
+
         public List<Tile> tiles = new List<Tile>();
         public List<Entity> entities = new List<Entity>();
 
         public Level(ResourceManager resources)
         {
-            
+           
             this.resourceManager = resources;
             this.hud = new HUD(this);
+            this.game = new Game();
         }
 
         public virtual void Reset()
@@ -41,8 +53,53 @@ namespace TORPOT.level
         }
         public void LoadLevel(string levelPath, string layerPath)
         {
+            musicHub = resourceManager.audio.GetSound(0).CreateInstance();
+            musicLava = resourceManager.audio.GetSound(5).CreateInstance();
+            musicForest = resourceManager.audio.GetSound(2).CreateInstance();
+            musicCloud = resourceManager.audio.GetSound(4).CreateInstance();
+            musicWater = resourceManager.audio.GetSound(3).CreateInstance();
+
+
+            musicHub.IsLooped = true;
+            musicLava.IsLooped = true;
+            musicForest.IsLooped = true;
+            musicCloud.IsLooped = true;
+            musicWater.IsLooped = true;
+            
+
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
+
+            if (Game.state == Game.STATE.Levelhub)
+            {
+
+               musicHub.Play();
+            }
+            if (Game.state == Game.STATE.Levelone)
+            {
+
+                musicCloud.Play();
+
+            }
+            if (Game.state == Game.STATE.Levellava)
+            {
+
+                musicLava.Play();
+            }
+            if (Game.state == Game.STATE.Levelwater)
+            {
+
+                musicWater.Play();
+            }
+            if (Game.state == Game.STATE.Levelforest)
+            {
+
+                musicForest.Play();
+            }
+            if(Game.state == Game.STATE.Menu)
+            {
+                musicHub.Play();
+            }
         }
 
         public virtual void Update(GameTime gameTime)

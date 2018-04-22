@@ -48,8 +48,9 @@ namespace Svennebanan
 
 
             //menu
-            images.AddImage("Play", content.Load<Texture2D>("itemhud"));
-            images.AddImage("Quit", content.Load<Texture2D>("itemhud"));
+            images.AddImage("Play", content.Load<Texture2D>("play"));
+            images.AddImage("Quit", content.Load<Texture2D>("end game"));
+            images.AddImage("mainMenu", content.Load<Texture2D>("meny_bakgrund"));
 
 
 
