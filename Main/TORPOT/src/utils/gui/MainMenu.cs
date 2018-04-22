@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Svennebanan;
 using Svennebanan.gui;
 using System;
@@ -42,7 +43,7 @@ namespace TORPOT.src.gui
             start.Update();
 
             quit.Update();
-
+            
 
             if (start.trigger)
             {

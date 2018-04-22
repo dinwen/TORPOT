@@ -20,7 +20,7 @@ namespace Svennebanan.gui
         
         private Level level;
 
-
+        Vector2 mp = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
 
 
         public Button(Vector2 position, int width, int height, string textureID, Level level)
@@ -35,14 +35,16 @@ namespace Svennebanan.gui
 
         public void Update()
         {
-           
-            if ((Mouse.GetState().X >= position.X && Mouse.GetState().X <= position.X + width) && (Mouse.GetState().Y >= position.Y && Mouse.GetState().Y <= position.Y + height))
+            Console.WriteLine(mp.X + ',' + mp.Y);
+
+
+            if ((mp.X >= position.X && mp.X <= position.X + width) && (mp.Y >= position.Y && mp.Y <= position.Y + height))
             {
                 
 
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-                      
+                   
                     trigger = true;
                 }
                 else

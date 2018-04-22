@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Svennebanan;
+using System;
 using TORPOT.level;
 using TORPOT.level.Levels;
 using TORPOT.src.gui;
@@ -49,7 +50,7 @@ namespace TORPOT
             graphics.PreferredBackBufferHeight = HEIGHT;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
 
 
             
@@ -98,6 +99,8 @@ namespace TORPOT
                 Exit();
             mainMenu.Update();
             inputHandler.Update();
+
+            
 
             switch (state)
             {
