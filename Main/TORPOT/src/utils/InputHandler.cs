@@ -29,7 +29,7 @@ namespace Svennebanan
         {
             GamePadCapabilities capabilities = GamePad.GetCapabilities(PlayerIndex.One);
 
-            if (Keyboard.GetState().IsKeyDown(Keys.K))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 interactDoor = true;
             }

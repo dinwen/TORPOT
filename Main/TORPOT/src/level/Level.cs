@@ -72,7 +72,7 @@ namespace TORPOT.level
             return null;
         }
 
-        public void Draw(SpriteBatch batch, SpriteBatch hudBatch)
+        public virtual void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
             foreach (Tile t in tiles)
             {

@@ -41,7 +41,7 @@ namespace TORPOT
             Game, Menu, Quit, Levelhub, Levelone, Leveltwo, Levelwater, Levellava, Levelforest
         };
 
-        public static STATE state = STATE.Menu;
+        public static STATE state;
        
 
         public Game()
@@ -74,7 +74,7 @@ namespace TORPOT
             levelLava = new LevelLava(resources);
             levelForest = new LevelForest(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
-            state = STATE.Levellava;
+            state = STATE.Levelhub;
 
             if(state == STATE.Levelhub)
             {

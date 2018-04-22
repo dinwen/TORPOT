@@ -129,6 +129,12 @@
     <Content Include="Content\Levels\water map v2._overlay.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Levels\world map v2._interaktiv.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\world map v2._overlay.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Lifebar black.png" />
     <Content Include="Content\Lifebar color.png" />
     <Content Include="Content\lifebar frame.png" />
@@ -136,7 +142,7 @@
     <Content Include="Content\playerSheet.png" />
     <Content Include="Content\projectile.png" />
     <Content Include="Content\testParticle.png" />
-    <Content Include="Content\Tile sheet v.3 32x32.png" />
+    <Content Include="Content\Tile sheet.png" />
     <Content Include="Content\walker sprite sheet.png" />
     <Content Include="Icon.ico" />
     <Content Include="obj\x86\Debug\TORPOT.csproj.FileListAbsolute.txt" />
