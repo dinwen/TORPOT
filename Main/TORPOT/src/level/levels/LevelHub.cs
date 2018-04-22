@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using TORPOT.src.level.entities.living;
 using TORPOT.src.level.entities.particles;
 using TORPOT.src.utils.gui;
+using Microsoft.Xna.Framework.Graphics;
+using System.Diagnostics;
 
 namespace TORPOT.level.Levels
 {
@@ -18,25 +20,56 @@ namespace TORPOT.level.Levels
         public LevelHub(ResourceManager resources) : base(resources)
         {
 
-            LoadLevel("Content/levels/LevelHub.txt", "Content/levels/LevelHub2.txt");
-           
-            AddEntity(new EntityPlayer(0, 0));
+            LoadLevel("Content/levels/world map v2._interaktiv.txt", "Content/levels/world map v2._overlay.txt");
+
+            AddEntity(new EntityPlayer(1500, 1200));
         }
 
         public override void Update(GameTime gameTime)
         {
-            //if(GetPlayer().GetX() == )
+            if (GetPlayer().GetX() > 34 && GetPlayer().GetX() < 74 && GetPlayer().GetY() > 1200)
+            {
+                if (InputHandler.interactDoor)
+                {
+                    Game.state = Game.STATE.Levellava;
+                }
+            }
+            else if (GetPlayer().GetX() > 112 && GetPlayer().GetX() < 142 && GetPlayer().GetY() > 800 && GetPlayer().GetY() < 1000)
+            {
+                if (InputHandler.interactDoor)
+                {
+                    Game.state = Game.STATE.Levelforest;
+                }
+            }
+            //else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() > 800)
             //{
             //    if (InputHandler.interactDoor)
             //    {
-            //        Game.state = Game.STATE.Levelhub;
-            //        //Game.SwitchLevel(new LevelHub(resourceManager));
+            //        Game.state = Game.STATE.Levelmoln;
             //    }
             //}
+            else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() > 1200)
+            {
+                if (InputHandler.interactDoor)
+                {
+                    Game.state = Game.STATE.Levelwater;
+                }
+            }
+
+            //Debug.Write("x=");
+            //Debug.WriteLine(GetPlayer().GetX());
+            //Debug.Write("y=");
+            //Debug.WriteLine(GetPlayer().GetY());
 
             base.Update(gameTime);
             //AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
-            AddEntity(new ParticleTest(GetPlayer().GetX(), GetPlayer().GetY()));
+            //AddEntity(new ParticleTest(GetPlayer().GetX(), GetPlayer().GetY()));
+        }
+
+        public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
+        {
+            base.Draw(batch, hudBatch);
+            batch.Draw(resourceManager.images.GetImage("worldmap"), new Vector2(0, 0), Color.White);
         }
     }
 }

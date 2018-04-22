@@ -35,6 +35,7 @@ namespace Svennebanan
             images.AddImage("shell", content.Load<Texture2D>("shell"));
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
+            images.AddImage("worldmap", content.Load<Texture2D>("world map"));
 
 
             images.AddImage("projectile", content.Load<Texture2D>("projectile"));
@@ -139,7 +140,10 @@ namespace Svennebanan
             tiles.AddTile(new Tile(6, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(7, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 6, new Rectangle(0, 0, 32, 32), true));
-
+            tiles.AddTile(new Tile(9, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(10, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(11, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(12, 6, new Rectangle(0, 0, 32, 32), true));
 
 
 
