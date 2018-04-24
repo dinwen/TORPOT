@@ -48,13 +48,13 @@ namespace TORPOT.level.Levels
                     Game.state = Game.STATE.Levelforest;
                 }
             }
-            //else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() > 800)
-            //{
-            //    if (InputHandler.interactDoor)
-            //    {
-            //        Game.state = Game.STATE.Levelmoln;
-            //    }
-            //}
+            else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() < 800)
+            {
+                if (InputHandler.interactDoor)
+                {
+                    Game.state = Game.STATE.Levelcloud;
+                }
+            }
             else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() >= 1200)
             {
                 if (InputHandler.interactDoor)
