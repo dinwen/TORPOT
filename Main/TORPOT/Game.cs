@@ -38,7 +38,7 @@ namespace TORPOT
 
         public bool showControls = false;
 
-        public static int scale = 1;
+        public static int scale = 2;
         public static int WIDTH = 480 * scale, HEIGHT = 288 * scale;
 
         public enum STATE
@@ -57,7 +57,7 @@ namespace TORPOT
             graphics.PreferredBackBufferHeight = HEIGHT;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
 
 
             
