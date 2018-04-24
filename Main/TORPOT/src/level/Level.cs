@@ -22,6 +22,7 @@ namespace TORPOT.level
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
         public LevelLoader levelLoader;
+<<<<<<< HEAD
         public HUD hud;
         public Game game;
 
@@ -33,6 +34,10 @@ namespace TORPOT.level
 
 
 
+=======
+        public static HUD hud;
+        public Vector2 size;
+>>>>>>> realMaster
 
         public List<Tile> tiles = new List<Tile>();
         public List<Entity> entities = new List<Entity>();
@@ -41,8 +46,12 @@ namespace TORPOT.level
         {
            
             this.resourceManager = resources;
+<<<<<<< HEAD
             this.hud = new HUD(this);
             this.game = new Game();
+=======
+            hud = new HUD(this);
+>>>>>>> realMaster
         }
 
         public virtual void Reset()
@@ -69,6 +78,7 @@ namespace TORPOT.level
 
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
+<<<<<<< HEAD
 
             if (Game.state == Game.STATE.Levelhub)
             {
@@ -100,6 +110,10 @@ namespace TORPOT.level
             {
                 musicHub.Play();
             }
+=======
+            size = levelLoader.size;
+            Console.WriteLine(size.X + ", " + size.Y);
+>>>>>>> realMaster
         }
 
         public virtual void Update(GameTime gameTime)
@@ -111,7 +125,14 @@ namespace TORPOT.level
                 entities[i].Update();
                 if (entities[i].isRemoved()) entities.RemoveAt(i);
             }
-            Game.camera.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5);
+
+            Camera c = Game.camera;
+            c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, 0); // (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5
+
+            //Console.WriteLine(c.Position.X + ", " + c.Position.Y);
+            if (c.Position.X < -Game.WIDTH / 4) c.Position = new Vector2(-Game.WIDTH / 4, c.Position.Y);
+            else if (c.Position.X > (size.X) * 32 - (Game.WIDTH * 0.75f)) c.Position = new Vector2((size.X) * 32 - (Game.WIDTH * 0.75f), c.Position.Y);
+            if (c.Position.Y > size.Y * 32 - Game.HEIGHT *0.75f) c.Position = new Vector2(c.Position.X, size.Y * 32 - Game.HEIGHT *0.75f);
         }
         
         public void AddEntity(Entity e)
@@ -129,7 +150,7 @@ namespace TORPOT.level
             return null;
         }
 
-        public void Draw(SpriteBatch batch, SpriteBatch hudBatch)
+        public virtual void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
             foreach (Tile t in tiles)
             {

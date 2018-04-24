@@ -31,15 +31,17 @@ namespace TORPOT
         public static Level levelWater;
         public static Level levelLava;
         public static Level levelForest;
+        public static Level levelCloud;
 
-        public static int WIDTH = 1920, HEIGHT = 1080;
+        public static int scale = 2;
+        public static int WIDTH = 480 * scale, HEIGHT = 288 * scale;
 
         public enum STATE
         {
-            Game, Menu, Quit, Levelhub, Levelone, Leveltwo, Levelwater, Levellava, Levelforest
+            Game, Menu, Quit, Levelhub, Levelone, Leveltwo, Levelwater, Levellava, Levelforest, Levelcloud
         };
 
-        public static STATE state = STATE.Menu;
+        public static STATE state;
        
 
         public Game()
@@ -64,17 +66,51 @@ namespace TORPOT
             inputHandler = new InputHandler();
             camera = new Svennebanan.Camera(GraphicsDevice.Viewport);
 
-            camera.Zoom = 2f;
+            camera.Zoom = scale;
 
             levelHub = new LevelHub(resources);
             levelOne = new LevelOne(resources);
             levelWater = new LevelWater(resources);
             levelLava = new LevelLava(resources);
             levelForest = new LevelForest(resources);
+            levelCloud = new LevelCloud(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
+<<<<<<< HEAD
             state = STATE.Menu;
 
             
+=======
+
+            state = STATE.Levelwater;
+
+            if(state == STATE.Levelhub)
+            {
+
+                musicHub.Play();
+            }
+            if (state == STATE.Levelone)
+            {
+
+                musicCloud.Play();
+                
+            }
+            if (state == STATE.Levellava)
+            {
+
+                musicLava.Play();
+            }
+            if (state == STATE.Levelwater)
+            {
+
+                musicWater.Play();
+            }
+            if(state == STATE.Levelforest)
+            {
+
+                musicForest.Play();
+            }
+
+>>>>>>> realMaster
         }
 
         protected override void LoadContent()
@@ -130,6 +166,9 @@ namespace TORPOT
                     levelForest.Update(gameTime);
                     MediaPlayer.Stop();
                     break;
+                case STATE.Levelcloud:
+                    levelCloud.Update(gameTime);
+                    break;
             }
 
             //if(state == STATE.Game)
@@ -180,6 +219,12 @@ namespace TORPOT
                 case STATE.Levelforest:
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
                     levelForest.Draw(spriteBatch, hudBatch);
+                    spriteBatch.End();
+                    break;
+
+                case STATE.Levelcloud:
+                    spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), blendState: BlendState.NonPremultiplied, samplerState: SamplerState.PointClamp, depthStencilState: null, rasterizerState: null, effect: null, sortMode: SpriteSortMode.FrontToBack);
+                    levelCloud.Draw(spriteBatch, hudBatch);
                     spriteBatch.End();
                     break;
 
