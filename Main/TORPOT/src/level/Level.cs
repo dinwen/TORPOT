@@ -52,14 +52,23 @@ namespace TORPOT.level
         {
 
             hud.Update();
-            for(int i = 0; i < entities.Count(); i++)
+            for (int i = 0; i < entities.Count(); i++)
             {
                 entities[i].Update();
                 if (entities[i].isRemoved()) entities.RemoveAt(i);
             }
 
             Camera c = Game.camera;
-            c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, 0); // (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5
+            //c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, 0);
+            if(Game.state == Game.STATE.Levelhub)
+            {
+                c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH / 2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT / 2 + 32) - Game.camera.Position.Y) / 5);
+            }
+            else
+            {
+                c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH / 2 + 32) - Game.camera.Position.X) / 5, 0);
+            }
+            // (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5
 
             //Console.WriteLine(c.Position.X + ", " + c.Position.Y);
             if (c.Position.X < -Game.WIDTH / 4) c.Position = new Vector2(-Game.WIDTH / 4, c.Position.Y);

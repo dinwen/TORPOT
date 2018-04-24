@@ -22,12 +22,19 @@ namespace TORPOT.level.Levels
 
             LoadLevel("Content/levels/world map v2._interaktiv.txt", "Content/levels/world map v2._overlay.txt");
 
-            AddEntity(new EntityPlayer(1500, 1200));
+            AddEntity(new EntityPlayer(1250, 1200));
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            LoadLevel("Content/levels/world map v2._interaktiv.txt", "Content/levels/world map v2._overlay.txt");
+            AddEntity(new EntityPlayer(1250, 1200));
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (GetPlayer().GetX() > 34 && GetPlayer().GetX() < 74 && GetPlayer().GetY() > 1200)
+            if (GetPlayer().GetX() > 34 && GetPlayer().GetX() < 74 && GetPlayer().GetY() >= 1200)
             {
                 if (InputHandler.interactDoor)
                 {
@@ -48,7 +55,7 @@ namespace TORPOT.level.Levels
             //        Game.state = Game.STATE.Levelmoln;
             //    }
             //}
-            else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() > 1200)
+            else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() >= 1200)
             {
                 if (InputHandler.interactDoor)
                 {
@@ -69,7 +76,9 @@ namespace TORPOT.level.Levels
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
             base.Draw(batch, hudBatch);
+            batch.Draw(resourceManager.images.GetImage("control"), new Vector2(1300, 1320), Color.White);
             batch.Draw(resourceManager.images.GetImage("worldmap"), new Vector2(0, 0), Color.White);
+            
         }
     }
 }

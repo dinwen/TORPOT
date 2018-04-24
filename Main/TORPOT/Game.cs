@@ -78,7 +78,7 @@ namespace TORPOT
             levelCloud = new LevelCloud(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
 
-            state = STATE.Levelwater;
+            state = STATE.Levelhub;
 
             if(state == STATE.Levelhub)
             {
