@@ -33,17 +33,34 @@ namespace Svennebanan
             images.AddImage("walker", content.Load<Texture2D>("walker sprite sheet"));
 
             images.AddImage("shell", content.Load<Texture2D>("shell"));
+            images.AddImage("medaljong", content.Load<Texture2D>("medaljong"));
+            images.AddImage("mirror", content.Load<Texture2D>("spegel sprite item"));
+            images.AddImage("book", content.Load<Texture2D>("book item"));
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
 
 
-            images.AddImage("projectile", content.Load<Texture2D>("projectile"));
+            images.AddImage("projectile", content.Load<Texture2D>("projectiles 13x18"));
 
             images.AddImage("HealthbarBackground", content.Load<Texture2D>("Lifebar black"));
             images.AddImage("HealthbarHealth", content.Load<Texture2D>("Lifebar color"));
             images.AddImage("HealthbarFrame", content.Load<Texture2D>("Lifebar frame"));
             images.AddImage("ItemHUD", content.Load<Texture2D>("itemhud"));
+
             images.AddImage("LavaWave", content.Load<Texture2D>("LavaWave"));
+            images.AddImage("Koi", content.Load<Texture2D>("112x220_Koi_head_vattenfall_animation"));
+            images.AddImage("Koi_head", content.Load<Texture2D>("koi_head_hinder_70x80"));
+            images.AddImage("Lava_overlay_1", content.Load<Texture2D>("lava overlay 62x288"));
+            images.AddImage("Lava_overlay_2", content.Load<Texture2D>("lava overlay 78x288"));
+            images.AddImage("Spikes", content.Load<Texture2D>("spikes hinder"));
+            images.AddImage("Cloud_0", content.Load<Texture2D>("cloud overlay 1"));
+            images.AddImage("Cloud_1", content.Load<Texture2D>("cloud overlay 2"));
+            images.AddImage("Cloud_2", content.Load<Texture2D>("cloud overlay 3"));
+
+            images.AddImage("background_lava", content.Load<Texture2D>("lava bakgrund"));
+            images.AddImage("background_water", content.Load<Texture2D>("vatten bakgrund"));
+            images.AddImage("background_forest", content.Load<Texture2D>("skog bakgrund"));
+            images.AddImage("background_cloud", content.Load<Texture2D>("cloud background"));
 
 
 
@@ -139,6 +156,16 @@ namespace Svennebanan
             tiles.AddTile(new Tile(6, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(7, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 6, new Rectangle(0, 0, 32, 32), true));
+
+            tiles.AddTile(new Tile(0, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(1, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(2, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(3, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(4, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(5, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(6, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(7, 7, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(8, 7, new Rectangle(0, 0, 32, 32), true));
 
 
 

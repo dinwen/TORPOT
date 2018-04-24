@@ -20,7 +20,8 @@ namespace TORPOT.level
         public ResourceManager resourceManager;
         public InputHandler inputHandler;
         public LevelLoader levelLoader;
-        public HUD hud;
+        public static HUD hud;
+        public Vector2 size;
 
         
         public List<Tile> tiles = new List<Tile>();
@@ -30,7 +31,7 @@ namespace TORPOT.level
         {
             
             this.resourceManager = resources;
-            this.hud = new HUD(this);
+            hud = new HUD(this);
         }
 
         public virtual void Reset()
@@ -43,6 +44,8 @@ namespace TORPOT.level
         {
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
+            size = levelLoader.size;
+            Console.WriteLine(size.X + ", " + size.Y);
         }
 
         public virtual void Update(GameTime gameTime)
@@ -54,7 +57,14 @@ namespace TORPOT.level
                 entities[i].Update();
                 if (entities[i].isRemoved()) entities.RemoveAt(i);
             }
-            Game.camera.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5);
+
+            Camera c = Game.camera;
+            c.Position += new Vector2((int)((GetPlayer().GetX() - Game.WIDTH/2 + 32) - Game.camera.Position.X) / 5, 0); // (int)((GetPlayer().GetY() - Game.HEIGHT/2 + 32) - Game.camera.Position.Y) / 5
+
+            //Console.WriteLine(c.Position.X + ", " + c.Position.Y);
+            if (c.Position.X < -Game.WIDTH / 4) c.Position = new Vector2(-Game.WIDTH / 4, c.Position.Y);
+            else if (c.Position.X > (size.X) * 32 - (Game.WIDTH * 0.75f)) c.Position = new Vector2((size.X) * 32 - (Game.WIDTH * 0.75f), c.Position.Y);
+            if (c.Position.Y > size.Y * 32 - Game.HEIGHT *0.75f) c.Position = new Vector2(c.Position.X, size.Y * 32 - Game.HEIGHT *0.75f);
         }
         
         public void AddEntity(Entity e)
@@ -72,7 +82,7 @@ namespace TORPOT.level
             return null;
         }
 
-        public void Draw(SpriteBatch batch, SpriteBatch hudBatch)
+        public virtual void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
             foreach (Tile t in tiles)
             {

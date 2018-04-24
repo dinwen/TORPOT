@@ -41,7 +41,10 @@ namespace TORPOT.src.utils.gui
 
             batch.Draw(level.resourceManager.images.GetImage("ItemHUD"), new Vector2(Game.WIDTH - 150, 15), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
 
-            if (itemOne) batch.Draw(level.resourceManager.images.GetImage("shell"), new Vector2(Game.WIDTH- 102, 37), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+            if (itemOne) batch.Draw(level.resourceManager.images.GetImage("shell"), new Vector2(Game.WIDTH - 102, 37), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+            if(itemTwo) batch.Draw(level.resourceManager.images.GetImage("medaljong"), new Vector2(Game.WIDTH - 102, 37 + 32), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+            if (itemThree) batch.Draw(level.resourceManager.images.GetImage("book"), new Vector2(Game.WIDTH - 102, 37 + 116), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
+            if (itemFour) batch.Draw(level.resourceManager.images.GetImage("mirror"), new Vector2(Game.WIDTH - 102, 37 + 150), null, null, new Vector2(0, 0), 0, new Vector2(1, 1), Color.White, SpriteEffects.None, 0.5f);
 
 #pragma warning restore CS0618 // Type or member is obsolete
 

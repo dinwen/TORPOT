@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Svennebanan;
 using SpelProjekt.src.utils;
 using TORPOT.src.level.entities.projectile;
+using TORPOT.level;
 
 namespace TORPOT.src.level.entities.living
 {
@@ -33,7 +34,7 @@ namespace TORPOT.src.level.entities.living
             this.width = 64;
             this.height = 64;
             this.movementSpeed = 5;
-            this.jumpHeight = 12;
+            this.jumpHeight = 9;
 
             sprint = new Animation(3, 0, 0, 64, 64, 448, 64, true);
             idle = new Animation(35, 0, 3, 64, 64, 256, 64, true);
@@ -126,11 +127,35 @@ namespace TORPOT.src.level.entities.living
                     if (((EntityItem)e).GetBounds().Intersects(GetBoundsFull()))
                     {
                         Console.WriteLine("Pickup!");
-                        if (((EntityItem)e).sprite == "shell") level.hud.itemOne = true;
+                        if (((EntityItem)e).sprite == "shell")
+                        {
+                            Game.state = Game.STATE.Levellava;
+                            Level.hud.itemOne = true;
+                        }
+                        else if (((EntityItem)e).sprite == "medaljong")
+                        {
+                            Game.state = Game.STATE.Levelforest;
+                            Level.hud.itemTwo = true;
+                        }
+                        else if (((EntityItem)e).sprite == "book")
+                        {
+                            Game.state = Game.STATE.Levelcloud;
+                            Level.hud.itemThree = true;
+                        }
+                        else if (((EntityItem)e).sprite == "mirror")
+                        {
+                            Game.state = Game.STATE.Levelwater;
+                            Level.hud.itemFour = true;
+                        }
+
                         e.Remove();
+
+                        level.Reset();
+                        return;
                     }
                 }
             }
+
         }
 
         public override void UpdateMovement()

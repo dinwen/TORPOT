@@ -34,6 +34,10 @@ namespace TORPOT.src.level.entities.living
 
             UpdateMovement();
             CheckCollision();
+
+            if (y > 15 * 32) health -= 10;
+            if (x <= 0) x = 0;
+            if (x >= level.size.X * 32 - width) x = level.size.X * 32 - width;
         }
 
         public virtual void UpdateMovement()
