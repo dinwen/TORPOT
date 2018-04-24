@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Svennebanan;
+using System;
 using TORPOT.level;
 using TORPOT.level.Levels;
 using TORPOT.src.gui;
@@ -34,6 +35,8 @@ namespace TORPOT
         public static Level levelLava;
         public static Level levelForest;
         public static Level levelCloud;
+
+        public bool showControls = false;
 
         public static int scale = 2;
         public static int WIDTH = 480 * scale, HEIGHT = 288 * scale;
@@ -142,6 +145,13 @@ namespace TORPOT
 
             inputHandler.Update();
 
+            if(InputHandler.controls)
+            {
+                InputHandler.controls = false;
+                InputHandler.releaseC = true;
+                showControls = !showControls;
+            }
+
             switch (state)
             {
                 case STATE.Levelhub:
@@ -233,6 +243,11 @@ namespace TORPOT
                     mainMenu.Draw(spriteBatch);
                     spriteBatch.End();
                     break;
+            }
+
+            if(showControls)
+            {
+                hudBatch.Draw(resources.images.GetImage("controls"), new Vector2(WIDTH / 2 - 312/2, HEIGHT/2 - 346/2), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0);
             }
             //else if(state == STATE.Menu)
             //{

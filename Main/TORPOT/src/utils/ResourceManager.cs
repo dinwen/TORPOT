@@ -64,6 +64,7 @@ namespace Svennebanan
             images.AddImage("background_forest", content.Load<Texture2D>("skog bakgrund"));
             images.AddImage("background_cloud", content.Load<Texture2D>("cloud background"));
 
+            images.AddImage("controls", content.Load<Texture2D>("control screen"));
 
 
             //menu

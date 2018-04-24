@@ -17,10 +17,12 @@ namespace Svennebanan
         public static bool jump;
         public static bool interactDoor;
         public static bool shoot;
+        public static bool controls;
 
         public static bool releaseJump = false;
         public static bool releaseShoot = false;
         public static bool releaseShift = false;
+        public static bool releaseC = false;
 
         public static bool escape;
         public static bool shift;
@@ -95,6 +97,15 @@ namespace Svennebanan
             {
                 if(!capabilities.IsConnected) releaseJump = false;
                 jump = false;
+            }
+
+            if(Keyboard.GetState().IsKeyDown(Keys.C))
+            {
+                if (!releaseC) controls = true;
+            }
+            else
+            {
+                releaseC = false;
             }
 
             if(Keyboard.GetState().IsKeyDown(Keys.LeftShift))
