@@ -48,13 +48,13 @@ namespace TORPOT.level.Levels
                     Game.state = Game.STATE.Levelforest;
                 }
             }
-            //else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() > 800)
-            //{
-            //    if (InputHandler.interactDoor)
-            //    {
-            //        Game.state = Game.STATE.Levelmoln;
-            //    }
-            //}
+            else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() < 800)
+            {
+                if (InputHandler.interactDoor)
+                {
+                    Game.state = Game.STATE.Levelcloud;
+                }
+            }
             else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() >= 1200)
             {
                 if (InputHandler.interactDoor)
@@ -63,10 +63,10 @@ namespace TORPOT.level.Levels
                 }
             }
 
-            //Debug.Write("x=");
-            //Debug.WriteLine(GetPlayer().GetX());
-            //Debug.Write("y=");
-            //Debug.WriteLine(GetPlayer().GetY());
+            Debug.Write("x=");
+            Debug.WriteLine(GetPlayer().GetX());
+            Debug.Write("y=");
+            Debug.WriteLine(GetPlayer().GetY());
 
             base.Update(gameTime);
             //AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
