@@ -33,8 +33,8 @@ namespace TORPOT.src.utils.gui
 
         public void Draw(SpriteBatch batch)
         {
-            batch.Draw(level.resourceManager.images.GetImage("HealthbarFrame"), new Rectangle(0, 0, 178, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.2f);
-            batch.Draw(level.resourceManager.images.GetImage("HealthbarHealth"), new Rectangle(0, 0, (int)health, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.1f);
+            batch.Draw(level.resourceManager.images.GetImage("HealthbarFrame"), new Rectangle(0, 0, 178, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.1f);
+            batch.Draw(level.resourceManager.images.GetImage("HealthbarHealth"), new Rectangle(0, 0, (int)health, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.2f);
             batch.Draw(level.resourceManager.images.GetImage("HealthbarBackground"), new Rectangle(0, 0, 178, 30), null, Color.White, 0, Vector2.Zero, SpriteEffects.None, 0.3f);
 
 #pragma warning disable CS0618 // Type or member is obsolete

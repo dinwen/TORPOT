@@ -49,6 +49,7 @@
 /processorParam:TextureFormat=Color
 /build:playerSheet.png
 
+<<<<<<< HEAD
 #begin projectile.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -61,6 +62,8 @@
 /processorParam:TextureFormat=Color
 /build:projectile.png
 
+=======
+>>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
 #begin walker sprite sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -157,6 +160,60 @@
 /processorParam:TextureFormat=Color
 /build:LavaWave.png
 
+#begin HubMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:HubMusic.wav
+
+#begin Running.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Running.wav
+
+#begin LavaMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:LavaMusic.wav
+
+#begin WaterMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:WaterMusic.wav
+
+#begin CloudMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:CloudMusic.wav
+
+#begin ForestMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:ForestMusic.wav
+
+#begin Drip.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Drip.wav
+
+#begin projectile.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:projectile.png
+
 #begin Tile sheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -169,7 +226,11 @@
 /processorParam:TextureFormat=Color
 /build:Tile sheet.png
 
+<<<<<<< HEAD
 #begin lava bakgrund.png
+=======
+#begin world map.png
+>>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -179,6 +240,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:lava bakgrund.png
 
 #begin vatten bakgrund.png
@@ -360,4 +422,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:book item.png
+=======
+/build:world map.png
+>>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
 

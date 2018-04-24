@@ -38,6 +38,7 @@ namespace Svennebanan
             images.AddImage("book", content.Load<Texture2D>("book item"));
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
+            images.AddImage("worldmap", content.Load<Texture2D>("world map"));
 
 
             images.AddImage("projectile", content.Load<Texture2D>("projectiles 13x18"));
@@ -156,6 +157,7 @@ namespace Svennebanan
             tiles.AddTile(new Tile(6, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(7, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 6, new Rectangle(0, 0, 32, 32), true));
+<<<<<<< HEAD
 
             tiles.AddTile(new Tile(0, 7, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(1, 7, new Rectangle(0, 0, 32, 32), true));
@@ -167,11 +169,25 @@ namespace Svennebanan
             tiles.AddTile(new Tile(7, 7, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 7, new Rectangle(0, 0, 32, 32), true));
 
+=======
+            tiles.AddTile(new Tile(9, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(10, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(11, 6, new Rectangle(0, 0, 32, 32), true));
+            tiles.AddTile(new Tile(12, 6, new Rectangle(0, 0, 32, 32), true));
+>>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
 
 
 
             //sounds
-            //audio.AddAudio(0, content.Load<SoundEffect>("fly"));
+            audio.AddAudio(0, content.Load<SoundEffect>("HubMusic"));
+            audio.AddAudio(1, content.Load<SoundEffect>("Running"));
+            audio.AddAudio(2, content.Load<SoundEffect>("ForestMusic"));
+            audio.AddAudio(3, content.Load<SoundEffect>("WaterMusic"));
+            audio.AddAudio(4, content.Load<SoundEffect>("CloudMusic"));
+            audio.AddAudio(5, content.Load<SoundEffect>("LavaMusic"));
+
+            audio.AddAudio(6, content.Load<SoundEffect>("Drip"));
+
 
             //font = content.Load<SpriteFont>("Score");
         }

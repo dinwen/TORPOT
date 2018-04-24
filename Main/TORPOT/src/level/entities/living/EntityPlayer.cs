@@ -17,7 +17,7 @@ namespace TORPOT.src.level.entities.living
 
         private Animation sprint, idle, jump, shooting_run, shooting_still;
         private int direction = 1;
-       
+        private float runningSoundCD = 0;
 
         public bool wallsliding = false;
         private int wallslideCooldown = 10;
@@ -49,6 +49,7 @@ namespace TORPOT.src.level.entities.living
 
         public override void Update()
         {
+            runningSoundCD--;
             if(health <= 0)
             {
                 level.Reset();
@@ -95,6 +96,8 @@ namespace TORPOT.src.level.entities.living
             {
                 InputHandler.releaseShoot = true;
                 InputHandler.shoot = false;
+                health -= 5;
+                resources.audio.GetSound(6).Play();
 
                 level.AddEntity(new ProjectileShell(x + 8, y + (8), direction));
                 if (playerState == STATE.idle) playerState = STATE.shooting_still;
@@ -162,8 +165,27 @@ namespace TORPOT.src.level.entities.living
         {
             base.UpdateMovement();
             Vector2 move = Vector2.Zero;
-            if (InputHandler.right) move.X += movementSpeed;
-            if (InputHandler.left) move.X -= movementSpeed;
+            if (InputHandler.right)
+            {
+               move.X += movementSpeed;
+
+                if(runningSoundCD <= 0 && OnGround())
+                {
+                    resources.audio.GetSound(1).Play();
+                    runningSoundCD = 14;
+                }
+                
+            }
+            if (InputHandler.left)
+            {
+                move.X -= movementSpeed;
+                if (runningSoundCD <= 0 && OnGround())
+                {
+                    resources.audio.GetSound(1).Play();
+                    runningSoundCD = 14;
+                }
+            }
+            
 
             if(move != Vector2.Zero)
             {
