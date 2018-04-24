@@ -157,7 +157,7 @@ namespace Svennebanan
             tiles.AddTile(new Tile(6, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(7, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 6, new Rectangle(0, 0, 32, 32), true));
-<<<<<<< HEAD
+
 
             tiles.AddTile(new Tile(0, 7, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(1, 7, new Rectangle(0, 0, 32, 32), true));
@@ -169,12 +169,11 @@ namespace Svennebanan
             tiles.AddTile(new Tile(7, 7, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(8, 7, new Rectangle(0, 0, 32, 32), true));
 
-=======
+
             tiles.AddTile(new Tile(9, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(10, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(11, 6, new Rectangle(0, 0, 32, 32), true));
             tiles.AddTile(new Tile(12, 6, new Rectangle(0, 0, 32, 32), true));
->>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
 
 
 

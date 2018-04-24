@@ -21,7 +21,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new EntityPlayer(400, 150));
             AddEntity(new EntityEnemy01(400, 150));
 
-<<<<<<< HEAD
+
             AddEntity(new LavaOverlay(5 * 32, 0));
             AddEntity(new LavaOverlay(20 * 32, 0));
             AddEntity(new LavaOverlay(37 * 32, 0));
@@ -34,11 +34,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new LavaWave(-400, 8 * 32 - 255));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "medaljong"));
-=======
-            AddEntity(new EntityItem(400, 24 * 32 - 8, "shell"));
-            
 
->>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
         }
 
         public override void Reset()

@@ -77,10 +77,8 @@ namespace TORPOT
             levelForest = new LevelForest(resources);
             levelCloud = new LevelCloud(resources);
             mainMenu = new MainMenu(resources, new Vector2(), levelHub);
-<<<<<<< HEAD
+
             state = STATE.Levelwater;
-=======
-            state = STATE.Levelhub;
 
             if(state == STATE.Levelhub)
             {
@@ -108,7 +106,7 @@ namespace TORPOT
 
                 musicForest.Play();
             }
->>>>>>> 52e596f7f39b4e7b4fab5c9c69360befbbb2d6a7
+
         }
 
         protected override void LoadContent()
