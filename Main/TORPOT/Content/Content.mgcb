@@ -439,6 +439,7 @@
 /processorParam:Quality=Best
 /build:WaterMusic.wav
 
+#begin press_c_for_controls.png
 #begin control screen.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -449,5 +450,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+/build:press_c_for_controls.png
 /build:control screen.png
 
