@@ -63,10 +63,10 @@ namespace TORPOT.level.Levels
                 }
             }
 
-            Debug.Write("x=");
-            Debug.WriteLine(GetPlayer().GetX());
-            Debug.Write("y=");
-            Debug.WriteLine(GetPlayer().GetY());
+            //Debug.Write("x=");
+            //Debug.WriteLine(GetPlayer().GetX());
+            //Debug.Write("y=");
+            //Debug.WriteLine(GetPlayer().GetY());
 
             base.Update(gameTime);
             //AddEntity(new ParticleTest(100, rdn.Next(100, 200)));
