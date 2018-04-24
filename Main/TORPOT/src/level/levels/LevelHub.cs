@@ -11,11 +11,16 @@ using TORPOT.src.level.entities.particles;
 using TORPOT.src.utils.gui;
 using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace TORPOT.level.Levels
 {
     public class LevelHub : Level
     {
+
+        public SoundEffectInstance musicHub;
+
+
         Random rdn = new Random();
         public LevelHub(ResourceManager resources) : base(resources)
         {
@@ -23,6 +28,7 @@ namespace TORPOT.level.Levels
             LoadLevel("Content/levels/world map v2._interaktiv.txt", "Content/levels/world map v2._overlay.txt");
 
             AddEntity(new EntityPlayer(1250, 1200));
+
         }
 
         public override void Reset()
@@ -30,6 +36,7 @@ namespace TORPOT.level.Levels
             base.Reset();
             LoadLevel("Content/levels/world map v2._interaktiv.txt", "Content/levels/world map v2._overlay.txt");
             AddEntity(new EntityPlayer(1250, 1200));
+            Game.musicHub.Play();
         }
 
         public override void Update(GameTime gameTime)
@@ -39,6 +46,7 @@ namespace TORPOT.level.Levels
                 if (InputHandler.interactDoor)
                 {
                     Game.state = Game.STATE.Levellava;
+                    Game.levelLava.Reset();
                 }
             }
             else if (GetPlayer().GetX() > 112 && GetPlayer().GetX() < 142 && GetPlayer().GetY() > 800 && GetPlayer().GetY() < 1000)
@@ -46,6 +54,7 @@ namespace TORPOT.level.Levels
                 if (InputHandler.interactDoor)
                 {
                     Game.state = Game.STATE.Levelforest;
+                    Game.levelForest.Reset();
                 }
             }
             else if (GetPlayer().GetX() > 1570 && GetPlayer().GetX() < 1615 && GetPlayer().GetY() > 600 && GetPlayer().GetY() < 800)
@@ -53,6 +62,7 @@ namespace TORPOT.level.Levels
                 if (InputHandler.interactDoor)
                 {
                     Game.state = Game.STATE.Levelcloud;
+                    Game.levelCloud.Reset();
                 }
             }
             else if (GetPlayer().GetX() > 1765 && GetPlayer().GetX() < 1810 && GetPlayer().GetY() >= 1200)
@@ -60,6 +70,7 @@ namespace TORPOT.level.Levels
                 if (InputHandler.interactDoor)
                 {
                     Game.state = Game.STATE.Levelwater;
+                    Game.levelWater.Reset();
                 }
             }
 
@@ -75,6 +86,8 @@ namespace TORPOT.level.Levels
 
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
+            if (Game.musicHub.State != SoundState.Playing) Game.musicHub.Play();
+
             base.Draw(batch, hudBatch);
             batch.Draw(resourceManager.images.GetImage("control"), new Vector2(1300, 1320), Color.White);
             batch.Draw(resourceManager.images.GetImage("worldmap"), new Vector2(0, 0), Color.White);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Svennebanan;
 using System;
@@ -14,6 +15,8 @@ namespace TORPOT.src.level.Levels
 {
     class LevelForest : Level
     {
+
+
 
         public LevelForest(ResourceManager resources) : base(resources)
         {
@@ -34,6 +37,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Spikes(111 * 32, 8 * 32));
 
             AddEntity(new EntityItem(149*32, 4 * 32, "book"));
+
         }
 
         public override void Reset()
@@ -55,10 +59,14 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Spikes(111 * 32, 8 * 32));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "book"));
+
+            Game.musicForest.Play();
         }
 
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
+            if (Game.musicForest.State != SoundState.Playing) Game.musicForest.Play();
+
             batch.Draw(resourceManager.images.GetImage("background_forest"), new Vector2((int)(GetPlayer().GetX() / 480f) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_forest"), new Vector2((int)((GetPlayer().GetX() / 480f) - 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_forest"), new Vector2((int)((GetPlayer().GetX() / 480f) + 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);

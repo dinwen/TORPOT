@@ -9,11 +9,16 @@ using TORPOT.src.level.entities.living;
 using TORPOT.src.level.entities;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace TORPOT.src.level.Levels
 {
     class LevelLava : Level
     {
+
+        public SoundEffectInstance musicLava;
+
+
         public LevelLava(ResourceManager resources) : base(resources)
         {
 
@@ -56,10 +61,14 @@ namespace TORPOT.src.level.Levels
             AddEntity(new LavaWave(-400, 8 * 32 - 255));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "medaljong"));
+
+            Game.musicLava.Play();
         }
 
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
+            if (Game.musicLava.State != SoundState.Playing) Game.musicLava.Play();
+
             batch.Draw(resourceManager.images.GetImage("background_lava"), new Vector2((int)(GetPlayer().GetX() / 480f) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_lava"), new Vector2((int)((GetPlayer().GetX() / 480f) - 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_lava"), new Vector2((int)((GetPlayer().GetX() / 480f) + 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
