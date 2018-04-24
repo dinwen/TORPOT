@@ -132,28 +132,24 @@ namespace TORPOT.src.level.entities.living
                         Console.WriteLine("Pickup!");
                         if (((EntityItem)e).sprite == "shell")
                         {
-                            Game.state = Game.STATE.Levellava;
                             Level.hud.itemOne = true;
                         }
                         else if (((EntityItem)e).sprite == "medaljong")
                         {
-                            Game.state = Game.STATE.Levelforest;
                             Level.hud.itemTwo = true;
                         }
                         else if (((EntityItem)e).sprite == "book")
                         {
-                            Game.state = Game.STATE.Levelcloud;
                             Level.hud.itemThree = true;
                         }
                         else if (((EntityItem)e).sprite == "mirror")
                         {
-                            Game.state = Game.STATE.Levelwater;
                             Level.hud.itemFour = true;
                         }
 
+                        Game.state = Game.STATE.Levelhub;
+                        Game.levelHub.Reset();
                         e.Remove();
-
-                        level.Reset();
                         return;
                     }
                 }

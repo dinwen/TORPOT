@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Svennebanan;
 using System;
@@ -14,6 +15,9 @@ namespace TORPOT.src.level.Levels
 {
     class LevelWater : Level
     {
+
+        public SoundEffectInstance musicWater;
+
         public LevelWater(ResourceManager resources) : base(resources)
         {
 
@@ -28,6 +32,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Koi(140 * 32 - 6, 7*32));
 
             AddEntity(new EntityItem(149*32, 4 * 32, "shell"));
+
         }
 
         public override void Reset()
@@ -44,6 +49,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Koi(140 * 32 - 6, 7 * 32));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "shell"));
+            Game.musicWater.Play();
         }
 
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)

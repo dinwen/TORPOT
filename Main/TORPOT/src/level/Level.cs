@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Svennebanan;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ namespace TORPOT.level
         public static HUD hud;
         public Vector2 size;
 
+        public SoundEffect currentSong;
         
         public List<Tile> tiles = new List<Tile>();
         public List<Entity> entities = new List<Entity>();
@@ -36,6 +39,13 @@ namespace TORPOT.level
 
         public virtual void Reset()
         {
+            Game.musicLava.Stop();
+            Game.musicWater.Stop();
+            Game.musicHub.Stop();
+            Game.musicForest.Stop();
+            Game.musicCloud.Stop();
+           
+           
             entities.Clear();
             tiles.Clear();
               
@@ -45,11 +55,12 @@ namespace TORPOT.level
             levelLoader = new LevelLoader(resourceManager, levelPath, layerPath);
             tiles = levelLoader.GetLevelTiles();
             size = levelLoader.size;
-            Console.WriteLine(size.X + ", " + size.Y);
+            //Console.WriteLine(size.X + ", " + size.Y);
         }
 
         public virtual void Update(GameTime gameTime)
         {
+
 
             hud.Update();
             for (int i = 0; i < entities.Count(); i++)

@@ -9,11 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using TORPOT.src.level.entities.living;
 using TORPOT.src.level.entities;
+using Microsoft.Xna.Framework.Audio;
 
 namespace TORPOT.src.level.Levels
 {
     class LevelCloud : Level
     {
+
+        public SoundEffectInstance musicCloud;
+
 
         public LevelCloud(ResourceManager resources) : base(resources)
         {
@@ -34,6 +38,7 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Cloud(139 * 32, 7 * 32));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "mirror"));
+
         }
 
         public override void Reset()
@@ -56,10 +61,13 @@ namespace TORPOT.src.level.Levels
             AddEntity(new Cloud(139 * 32, 7 * 32));
 
             AddEntity(new EntityItem(149 * 32, 4 * 32, "mirror"));
+            Game.musicCloud.Play();
         }
 
         public override void Draw(SpriteBatch batch, SpriteBatch hudBatch)
         {
+            if (Game.musicCloud.State != SoundState.Playing) Game.musicCloud.Play();
+
             batch.Draw(resourceManager.images.GetImage("background_cloud"), new Vector2((int)(GetPlayer().GetX() / 480f) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_cloud"), new Vector2((int)((GetPlayer().GetX() / 480f) - 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);
             batch.Draw(resourceManager.images.GetImage("background_cloud"), new Vector2((int)((GetPlayer().GetX() / 480f) + 1) * 480, 0), null, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0f);

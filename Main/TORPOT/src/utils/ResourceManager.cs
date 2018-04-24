@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Svennebanan.utils;
+using Microsoft.Xna.Framework.Media;
 
 namespace Svennebanan
 {
@@ -17,6 +18,11 @@ namespace Svennebanan
         public ImageHandler images;
         public TileHandler tiles;
         public AudioHandler audio;
+
+        public SoundEffectInstance hubSong, waterSong, lavaSong;
+
+
+        public Song hub, water;
 
         public ResourceManager()
         {
@@ -39,7 +45,7 @@ namespace Svennebanan
 
             images.AddImage("testParticle", content.Load<Texture2D>("testParticle"));
             images.AddImage("worldmap", content.Load<Texture2D>("world map"));
-            images.AddImage("control", content.Load<Texture2D>("press_c_for_controls"));
+            images.AddImage("control", content.Load<Texture2D>("control screen"));
 
 
             images.AddImage("projectile", content.Load<Texture2D>("projectiles 13x18"));
@@ -188,6 +194,14 @@ namespace Svennebanan
             audio.AddAudio(5, content.Load<SoundEffect>("LavaMusic"));
 
             audio.AddAudio(6, content.Load<SoundEffect>("Drip"));
+
+            hubSong = audio.GetSound(0).CreateInstance();
+            waterSong = audio.GetSound(3).CreateInstance();
+            lavaSong = audio.GetSound(5).CreateInstance();
+
+            hub = content.Load<Song>("HubMusicM");
+            water = content.Load<Song>("WaterMusicM");
+           
 
 
             //font = content.Load<SpriteFont>("Score");
